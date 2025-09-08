@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Successful</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+        .container { max-width: 400px; margin: 0 auto; }
+        .success { color: #28a745; }
+        .button { 
+            background: #007bff; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="success">✓ Payment Successful!</h1>
+        <p>Your payment has been processed successfully.</p>
+        <p id="loading">Redirecting to app...</p>
+        
+        <button id="openApp" class="button" style="display:none;">
+            Open Malibu Money App
+        </button>
+        
+        <button id="manualRedirect" class="button" style="display:none;">
+            Return to App
+        </button>
+    </div>
+
+    <script>
+        // Get payment request ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentRequestId = urlParams.get('paymentRequestId') || '';
+        
+        // Create deep link
+        const deepLink = `malibu-money://paymentstatus?paymentRequestId=${paymentRequestId}`;
+        
+        // Try automatic redirect first
+        setTimeout(() => {
+            window.location.href = deepLink;
+        }, 1000);
+        
+        // Show manual buttons after 3 seconds if auto-redirect didn't work
+        setTimeout(() => {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('openApp').style.display = 'inline-block';
+            document.getElementById('manualRedirect').style.display = 'inline-block';
+            
+            document.getElementById('openApp').onclick = () => {
+                window.location.href = deepLink;
+            };
+            
+            document.getElementById('manualRedirect').onclick = () => {
+                window.location.href = deepLink;
+            };
+        }, 3000);
+    </script>
+</body>
+</html>
