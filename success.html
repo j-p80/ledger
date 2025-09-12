@@ -1,66 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Payment Successful</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Processing - Malibu Money</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
-        .container { max-width: 400px; margin: 0 auto; }
-        .success { color: #28a745; }
-        .button { 
-            background: #007bff; 
-            color: white; 
-            padding: 15px 30px; 
-            border: none; 
-            border-radius: 5px; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 40px 20px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            font-style: italic;
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .processing-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #00d4ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .subtitle {
             font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .status-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.3s; }
+        .dot:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .fallback-button {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            margin: 10px;
+            transition: all 0.3s ease;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .fallback-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 153, 204, 0.4);
+        }
+
+        .payment-id {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 15px;
+            font-family: 'SF Mono', monospace;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="success">✓ Payment Successful!</h1>
-        <p>Your payment has been processed successfully.</p>
-        <p id="loading">Redirecting to app...</p>
+        <div class="logo">Malibu</div>
         
-        <button id="openApp" class="button" style="display:none;">
-            Open Malibu Money App
-        </button>
-        
-        <button id="manualRedirect" class="button" style="display:none;">
-            Return to App
-        </button>
+        <div class="card">
+            <div class="processing-icon">
+                <div class="spinner"></div>
+            </div>
+            
+            <h1 class="title">Processing Payment</h1>
+            <p class="subtitle">
+                Your payment is being processed.<br>
+                Redirecting you back to the app...
+            </p>
+            
+            <div class="status-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <button id="fallbackButton" class="fallback-button">
+                Return to Malibu App
+            </button>
+            
+            <div id="paymentId" class="payment-id"></div>
+        </div>
     </div>
 
     <script>
-        // Get payment request ID from URL
+        // Get payment request ID from URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const paymentRequestId = urlParams.get('paymentRequestId') || '';
+        const paymentRequestId = urlParams.get('paymentRequestId') || urlParams.get('id') || '';
         
-        // Create deep link
-        const deepLink = `malibu-money://paymentstatus?paymentRequestId=${paymentRequestId}`;
+        // Display payment ID if available
+        if (paymentRequestId) {
+            document.getElementById('paymentId').textContent = `Payment ID: ${paymentRequestId}`;
+        }
         
-        // Try automatic redirect first
+        // Create deep link with correct structure
+        const deepLink = `malibu-money://malibu-money.com/paymentstatus?paymentRequestId=${paymentRequestId}`;
+        
+        console.log('Attempting to redirect to:', deepLink);
+        
+        // Attempt automatic redirect after 1.5 seconds
         setTimeout(() => {
-            window.location.href = deepLink;
-        }, 1000);
+            try {
+                window.location.href = deepLink;
+                console.log('Redirect attempted');
+            } catch (error) {
+                console.error('Redirect failed:', error);
+                showFallbackButton();
+            }
+        }, 1500);
         
-        // Show manual buttons after 3 seconds if auto-redirect didn't work
+        // Show fallback button after 4 seconds if redirect didn't work
         setTimeout(() => {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('openApp').style.display = 'inline-block';
-            document.getElementById('manualRedirect').style.display = 'inline-block';
-            
-            document.getElementById('openApp').onclick = () => {
-                window.location.href = deepLink;
+            showFallbackButton();
+        }, 4000);
+        
+        function showFallbackButton() {
+            const button = document.getElementById('fallbackButton');
+            button.style.display = 'inline-block';
+            button.onclick = function() {
+                try {
+                    window.location.href = deepLink;
+                } catch (error) {
+                    // If deep link fails, could potentially redirect to app store
+                    console.error('Deep link failed:', error);
+                    alert('Please open the Malibu Money app manually to check your payment status.');
+                }
             };
-            
-            document.getElementById('manualRedirect').onclick = () => {
-                window.location.href = deepLink;
-            };
-        }, 3000);
+        }
+        
+        // Optional: Listen for page visibility changes to detect if user returned from app
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                console.log('User returned to page - app redirect may have failed');
+            }
+        });
     </script>
 </body>
 </html>
