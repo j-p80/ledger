@@ -1,0 +1,165 @@
+---
+interface Props {
+  plan: string;
+  price: string;
+  priceNote?: string;
+  features: string[];
+  cta: string;
+  ctaHref: string;
+  highlighted?: boolean;
+  badge?: string;
+}
+
+const {
+  plan,
+  price,
+  priceNote,
+  features,
+  cta,
+  ctaHref,
+  highlighted = false,
+  badge,
+} = Astro.props;
+---
+
+<div class:list={['pricing-card', { 'pricing-card--featured': highlighted }]}>
+  {badge && <div class="pricing-badge">{badge}</div>}
+
+  <div class="pricing-plan">{plan}</div>
+
+  <div class="pricing-price-block">
+    <span class="pricing-amount">{price}</span>
+    {priceNote && <span class="pricing-note">{priceNote}</span>}
+  </div>
+
+  <ul class="pricing-features" role="list">
+    {features.map(f => (
+      <li class="pricing-feature">
+        <span class="check" aria-hidden="true">✓</span>
+        <span>{f}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a
+    href={ctaHref}
+    class:list={['pricing-cta', { 'pricing-cta--primary': highlighted }]}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {cta}
+  </a>
+</div>
+
+<style>
+  .pricing-card {
+    background-color: #fff;
+    border: 1.5px solid rgba(45, 74, 62, 0.15);
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    flex: 1;
+    max-width: 400px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .pricing-card--featured {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 1px var(--color-gold), 0 8px 40px rgba(212, 175, 55, 0.14);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.875rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .pricing-plan {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-forest);
+    margin-bottom: 0.875rem;
+  }
+
+  .pricing-price-block {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.1);
+  }
+
+  .pricing-amount {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-slate);
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-note {
+    font-size: 0.8125rem;
+    color: var(--color-slate);
+    opacity: 0.55;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pricing-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--color-slate);
+  }
+
+  .check {
+    color: var(--color-sage);
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+    border: 2px solid var(--color-forest);
+    color: var(--color-forest);
+  }
+
+  .pricing-cta--primary {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-forest);
+  }
+
+  .pricing-cta:hover {
+    opacity: 0.82;
+  }
+</style>

@@ -1,0 +1,8 @@
+name = "heirly-website"
+compatibility_date = "2024-09-23"
+
+# Cloudflare Pages build configuration
+# Build command:        astro build
+# Build output dir:     dist
+# Node.js version:      18 or above
+pages_build_output_dir = "dist"
