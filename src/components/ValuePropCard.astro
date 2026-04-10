@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="vp-card">
+  {icon && <span class="vp-icon" aria-hidden="true">{icon}</span>}
+  <h3 class="vp-title">{title}</h3>
+  <p class="vp-description">{description}</p>
+</div>
+
+<style>
+  .vp-card {
+    background-color: #fff;
+    border: 1px solid rgba(45, 74, 62, 0.1);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .vp-card:hover {
+    box-shadow: 0 4px 24px rgba(45, 74, 62, 0.09);
+  }
+
+  .vp-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--color-sage);
+  }
+
+  .vp-title {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--color-forest);
+    margin: 0 0 0.625rem;
+  }
+
+  .vp-description {
+    font-size: 0.9rem;
+    line-height: 1.72;
+    color: var(--color-slate);
+    margin: 0;
+    opacity: 0.82;
+  }
+</style>

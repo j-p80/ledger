@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingCard from '../components/PricingCard.astro';
+
+const freePlanFeatures = [
+  'Up to 10 items',
+  'Sentimental allocation rounds',
+  'Family invitation by email',
+  'Transparent allocation ledger',
+];
+
+const paidPlanFeatures = [
+  'Unlimited items',
+  'Financial allocation rounds',
+  'Settlement calculator',
+  'Full PDF report & audit export',
+  'Priority support',
+];
+
+const faqs = [
+  {
+    q: 'Is this a subscription?',
+    a: 'No. Heirly charges a one-time payment per estate. There are no monthly fees, no renewals, and nothing to cancel. You pay once, for one estate, and the tools are yours for as long as you need them.',
+  },
+  {
+    q: 'Can I try before paying?',
+    a: 'Yes. The free tier lets you catalogue up to 10 items and run sentimental allocation rounds at no cost. You can invite family members and complete a full settlement within the free tier if your estate has 10 or fewer items.',
+  },
+  {
+    q: 'What happens when I reach the 10 item limit?',
+    a: "You'll see an upgrade prompt when you try to add an 11th item. No data is lost — everything you've added remains exactly as you left it. Upgrading unlocks unlimited items and the financial allocation tools.",
+  },
+  {
+    q: 'How does the family access the estate?',
+    a: 'Family members receive a personalised email invitation with a magic link. Clicking it takes them straight into the estate — no account creation, no password. Each link is private and tied to their email address.',
+  },
+  {
+    q: 'Is my data secure?',
+    a: "Yes. Heirly is built on Supabase with row-level security, meaning each user can only see the data they're permitted to access. All documents and photos are stored in private, access-controlled storage. We take the security of sensitive family data seriously.",
+  },
+  {
+    q: 'What currency are prices in?',
+    a: 'Prices are in GBP (£). We currently serve families primarily in the UK.',
+  },
+];
+---
+
+<Layout
+  title="Pricing"
+  description="Heirly pricing — free for up to 10 items, or £99 one-time for full estate settlement. No subscription."
+>
+
+  <!-- ——— Page hero ——— -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Simple, transparent pricing</h1>
+      <p class="lead">One payment per estate. No subscriptions. No surprises.</p>
+    </div>
+  </section>
+
+  <!-- ——— Pricing cards ——— -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-row">
+        <PricingCard
+          plan="Free"
+          price="£0"
+          priceNote="Forever free"
+          features={freePlanFeatures}
+          cta="Start free"
+          ctaHref="https://app.heirly.app"
+        />
+        <PricingCard
+          plan="Full estate"
+          price="£99"
+          priceNote="One-time per estate"
+          features={paidPlanFeatures}
+          cta="Get started"
+          ctaHref="https://app.heirly.app"
+          highlighted={true}
+          badge="Most estates"
+        />
+      </div>
+      <p class="pricing-note">One payment. One estate. No subscription.</p>
+    </div>
+  </section>
+
+  <!-- ——— FAQ ——— -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="faq-heading">Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(item => (
+          <details class="faq-item">
+            <summary class="faq-q">{item.q}</summary>
+            <p class="faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— CTA ——— -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Start your estate today</h2>
+      <p>No credit card required for the free tier.</p>
+      <a
+        href="https://app.heirly.app"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Get started free
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ——— Page hero ——— */
+  .page-hero {
+    background-color: var(--color-forest);
+    padding: 5.5rem 0 4.5rem;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    color: var(--color-cream);
+    margin: 0 0 1rem;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.72;
+    color: rgba(245, 240, 232, 0.8);
+    margin: 0;
+  }
+
+  /* ——— Pricing ——— */
+  .pricing-section {
+    background-color: var(--color-cream);
+    padding: 5.5rem 0 3.5rem;
+  }
+
+  .pricing-row {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .pricing-note {
+    text-align: center;
+    font-size: 0.9375rem;
+    color: var(--color-slate);
+    opacity: 0.55;
+    font-style: italic;
+    margin: 2rem 0 0;
+  }
+
+  /* ——— FAQ ——— */
+  .faq-section {
+    background-color: var(--color-tint);
+    padding: 5rem 0;
+  }
+
+  .faq-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+    color: var(--color-slate);
+    text-align: center;
+    margin: 0 0 2.75rem;
+  }
+
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(45, 74, 62, 0.1);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-slate);
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.15s ease;
+    user-select: none;
+  }
+
+  .faq-q::-webkit-details-marker { display: none; }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 1.375rem;
+    font-weight: 300;
+    color: var(--color-sage);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] .faq-q::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-q:hover {
+    background-color: rgba(45, 74, 62, 0.03);
+  }
+
+  .faq-a {
+    font-size: 0.9375rem;
+    line-height: 1.78;
+    color: var(--color-slate);
+    opacity: 0.78;
+    padding: 0 1.375rem 1.375rem;
+    margin: 0;
+    border-top: 1px solid rgba(45, 74, 62, 0.07);
+  }
+
+  /* ——— CTA ——— */
+  .cta-section {
+    background-color: var(--color-cream);
+    padding: 5.5rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--color-slate);
+    margin: 0 0 0.875rem;
+  }
+
+  .cta-inner p {
+    font-size: 1.0625rem;
+    color: var(--color-slate);
+    opacity: 0.62;
+    margin: 0 0 2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 640px) {
+    .pricing-section,
+    .faq-section,
+    .cta-section { padding: 3.5rem 0; }
+
+    .pricing-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

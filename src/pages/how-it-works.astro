@@ -1,0 +1,391 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="How it works"
+  description="A guided walkthrough of how Heirly helps families divide an estate fairly, transparently, and without conflict."
+>
+
+  <!-- ——— Page hero ——— -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>How Heirly works</h1>
+      <p class="lead">
+        Heirly guides families through the division of an estate in structured rounds — always
+        transparent, always at the executor's pace, always with dignity.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— Step 1: Catalogue ——— -->
+  <section class="step-section bg-cream">
+    <div class="container">
+      <div class="step-layout">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-body">
+          <h2>Catalogue the estate</h2>
+          <p>
+            The executor creates an estate and begins adding items — furniture, jewellery, artwork,
+            photographs, vehicles, and anything else that needs to be divided.
+          </p>
+          <p>
+            Upload a photo of each item and our AI will suggest a title and an estimated value,
+            saving hours of manual entry. You can adjust anything at any time before rounds open.
+          </p>
+          <p>
+            There's no need to value every item precisely. Heirly is designed to handle the full
+            range — from cherished heirlooms with deep sentimental meaning to items with a clear
+            financial value.
+          </p>
+          <div class="callout callout--sage">
+            <strong>Free tier:</strong> Catalogue up to 10 items and run sentimental allocation
+            rounds at no cost. No credit card required.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Step 2: Preferences ——— -->
+  <section class="step-section bg-tint">
+    <div class="container">
+      <div class="step-layout">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-body">
+          <h2>Family expresses preferences</h2>
+          <p>
+            The executor invites family members by email. There's no account to create, no password
+            to remember — each person receives a personal magic link that takes them straight into
+            the estate.
+          </p>
+          <p>
+            Heirly runs allocation rounds, not auctions. Family members express what matters to
+            them — there's no competition, no winner or loser, no anxiety about being outbid.
+            Items are handled through two distinct processes:
+          </p>
+
+          <div class="split-cards">
+            <div class="split-card">
+              <h3>Sentimental rounds</h3>
+              <p>
+                For items where personal meaning is what matters — a piece of jewellery worn
+                by a parent, a book with handwritten notes, a childhood photograph. Each person
+                says whether they'd like the item and why. The executor sees the responses and
+                makes the final call.
+              </p>
+            </div>
+            <div class="split-card">
+              <h3>Financial rounds</h3>
+              <p>
+                For items with clear monetary value, Heirly calculates a fair distribution
+                using the estate's total value as a guide. The goal is financial equity across
+                beneficiaries — not necessarily equal division of every individual item.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Most items are uncontested — only one person wants them — so they're assigned
+            automatically without any debate. Heirly only surfaces the genuinely contested
+            items that need a conversation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Step 3: Settlement ——— -->
+  <section class="step-section bg-cream">
+    <div class="container">
+      <div class="step-layout">
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-body">
+          <h2>Fair settlement</h2>
+          <p>
+            When all rounds are complete, Heirly produces a clear allocation ledger — every item,
+            every recipient, every decision, visible to everyone in the estate.
+          </p>
+          <p>
+            Because the whole family has participated in the same transparent process, there's
+            nothing to dispute and no reason for resentment. The executor can export a full PDF
+            report for legal or record-keeping purposes.
+          </p>
+          <div class="callout callout--gold">
+            Every family member sees the same ledger. Transparency is the foundation of fairness.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Principles ——— -->
+  <section class="principles-section">
+    <div class="container">
+      <h2 class="principles-title">The principles behind Heirly</h2>
+      <div class="principles-grid">
+        <div class="principle">
+          <h3>No bidding. No auctions.</h3>
+          <p>
+            We never use auction language. Family members express preferences, not bids. This
+            keeps the process dignified and avoids the anxiety of competitive dynamics between
+            grieving people.
+          </p>
+        </div>
+        <div class="principle">
+          <h3>Executor-led, not system-led.</h3>
+          <p>
+            The executor decides when to open and close rounds. Heirly is a tool, not an
+            authority. It structures the process, but the family retains complete control
+            over the timeline.
+          </p>
+        </div>
+        <div class="principle">
+          <h3>Sentimental ≠ financial.</h3>
+          <p>
+            A photograph of a parent has no monetary value but infinite personal meaning.
+            Heirly treats these differently, because conflating them is a common source
+            of lasting pain.
+          </p>
+        </div>
+        <div class="principle">
+          <h3>Designed for grief.</h3>
+          <p>
+            Every interaction in Heirly is written to be warm, calm, and unhurried. There are
+            no deadlines, no pressure, no jargon. Just a clear path through a difficult task.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— CTA ——— -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Ready to get started?</h2>
+      <p>Create your estate for free. No credit card required.</p>
+      <a
+        href="https://app.heirly.app"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Start your estate
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .bg-cream { background-color: var(--color-cream); }
+  .bg-tint  { background-color: var(--color-tint); }
+
+  /* ——— Page hero ——— */
+  .page-hero {
+    background-color: var(--color-forest);
+    padding: 5.5rem 0 4.5rem;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    color: var(--color-cream);
+    margin: 0 0 1.25rem;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.8);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* ——— Step sections ——— */
+  .step-section {
+    padding: 5rem 0;
+  }
+
+  .step-layout {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 860px;
+  }
+
+  .step-num {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .step-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+
+  .step-body p {
+    font-size: 1.0625rem;
+    line-height: 1.82;
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+
+  .callout {
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-slate);
+    margin-top: 0.5rem;
+  }
+
+  .callout--sage {
+    background-color: rgba(74, 124, 106, 0.1);
+    border-left: 3px solid var(--color-sage);
+  }
+
+  .callout--gold {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--color-gold);
+    font-style: italic;
+    font-size: 1.0625rem;
+  }
+
+  /* ——— Split cards ——— */
+  .split-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.125rem;
+    margin: 1.5rem 0;
+  }
+
+  .split-card {
+    background-color: #fff;
+    border: 1px solid rgba(45, 74, 62, 0.1);
+    border-radius: 10px;
+    padding: 1.375rem 1.25rem;
+  }
+
+  .split-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--color-forest);
+    margin: 0 0 0.625rem;
+  }
+
+  .split-card p {
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.72 !important;
+  }
+
+  /* ——— Principles ——— */
+  .principles-section {
+    background-color: var(--color-forest);
+    padding: 5rem 0;
+  }
+
+  .principles-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--color-cream);
+    text-align: center;
+    margin: 0 0 3rem;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.25rem;
+  }
+
+  .principle h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--color-cream);
+    margin: 0 0 0.75rem;
+  }
+
+  .principle p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.68);
+    margin: 0;
+  }
+
+  /* ——— CTA ——— */
+  .cta-section {
+    background-color: var(--color-cream);
+    padding: 5.5rem 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--color-slate);
+    margin: 0 0 0.875rem;
+  }
+
+  .cta-inner p {
+    font-size: 1.0625rem;
+    color: var(--color-slate);
+    opacity: 0.65;
+    margin: 0 0 2rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 640px) {
+    .step-section { padding: 3.5rem 0; }
+
+    .step-layout {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .split-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .principles-section,
+    .cta-section { padding: 3.5rem 0; }
+  }
+</style>

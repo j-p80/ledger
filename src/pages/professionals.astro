@@ -1,0 +1,343 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const audienceCards = [
+  {
+    title: 'Probate solicitors',
+    description:
+      'Provide your clients with a structured, transparent process for dividing estate contents. Heirly reduces the time you spend mediating family disputes over personal property — and gives you a clear audit trail if any allocation is later questioned.',
+  },
+  {
+    title: 'Funeral directors',
+    description:
+      "Support families at the most difficult time by introducing them to a tool that helps them have the conversations that need to happen — calmly, fairly, and on their own terms. It's a meaningful addition to your aftercare offering.",
+  },
+  {
+    title: 'Estate agents',
+    description:
+      'Before a property can be cleared or sold, belongings need to be distributed. Heirly helps families reach agreement quickly so the estate can move forward without delay, reducing stress for everyone involved.',
+  },
+];
+
+const referralSteps = [
+  {
+    n: 1,
+    title: 'You refer a client',
+    desc: 'Share your unique referral link or make an introduction by email.',
+  },
+  {
+    n: 2,
+    title: 'We onboard the family',
+    desc: 'We guide the executor through setting up their estate — no admin on your part.',
+  },
+  {
+    n: 3,
+    title: 'Settlement happens smoothly',
+    desc: "Your client's family reaches a fair, transparent agreement. You get the credit.",
+  },
+];
+---
+
+<Layout
+  title="For Professionals"
+  description="Partner with Heirly to support your clients through estate settlement. Built for probate solicitors, funeral directors, and estate agents."
+>
+
+  <!-- ——— Page hero ——— -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-label">For professionals</p>
+      <h1>Supporting your clients<br />through what comes next</h1>
+      <p class="lead">
+        Probate solicitors, funeral directors, and estate agents partner with Heirly to offer
+        families a dignified, transparent process for dividing personal belongings after a loss.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— Audience cards ——— -->
+  <section class="audience-section">
+    <div class="container">
+      <div class="audience-grid">
+        {audienceCards.map(card => (
+          <div class="audience-card">
+            <h2 class="audience-title">{card.title}</h2>
+            <p class="audience-desc">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— How the referral works ——— -->
+  <section class="referral-section">
+    <div class="container">
+      <div class="referral-grid">
+        <div class="referral-text">
+          <h2>How the referral channel works</h2>
+          <p>
+            We work with professional partners to create a simple, dignified handoff. When one of
+            your clients needs to settle an estate, you refer them to Heirly. We handle the
+            rest — no ongoing admin for you, and a better experience for your clients.
+          </p>
+          <p>
+            Partners receive a dedicated referral link and access to our onboarding guide for
+            families. We can also provide printed materials for waiting rooms or client packs.
+          </p>
+          <p>
+            If you're interested in becoming a Heirly professional partner, we'd love to hear
+            from you. We're building these relationships thoughtfully and selectivley.
+          </p>
+        </div>
+
+        <div class="referral-steps">
+          {referralSteps.map(step => (
+            <div class="ref-step">
+              <div class="ref-num" aria-hidden="true">{step.n}</div>
+              <div>
+                <strong>{step.title}</strong>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Contact / CTA ——— -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-inner">
+        <h2>Get in touch</h2>
+        <p>
+          Tell us a little about your practice and how you support clients through probate or
+          bereavement. We'll be in touch to discuss how a partnership might work.
+        </p>
+        <a
+          href="mailto:partners@heirly.app?subject=Professional%20partnership%20enquiry"
+          class="btn-primary"
+        >
+          Email us about partnering
+        </a>
+        <p class="contact-note">
+          Or write directly to
+          <a href="mailto:partners@heirly.app">partners@heirly.app</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ——— Page hero ——— */
+  .page-hero {
+    background-color: var(--color-forest);
+    padding: 5.5rem 0 4.5rem;
+  }
+
+  .page-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    margin: 0 0 0.875rem;
+  }
+
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    color: var(--color-cream);
+    margin: 0 0 1.25rem;
+    line-height: 1.18;
+  }
+
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.8);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* ——— Audience cards ——— */
+  .audience-section {
+    background-color: var(--color-cream);
+    padding: 5.5rem 0;
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .audience-card {
+    background-color: #fff;
+    border: 1px solid rgba(45, 74, 62, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .audience-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+  }
+
+  .audience-desc {
+    font-size: 0.9375rem;
+    line-height: 1.78;
+    color: var(--color-slate);
+    opacity: 0.82;
+    margin: 0;
+  }
+
+  /* ——— Referral ——— */
+  .referral-section {
+    background-color: var(--color-tint);
+    padding: 5.5rem 0;
+  }
+
+  .referral-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .referral-text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+
+  .referral-text p {
+    font-size: 0.9375rem;
+    line-height: 1.82;
+    color: var(--color-slate);
+    opacity: 0.82;
+    margin: 0 0 1rem;
+  }
+
+  .referral-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .ref-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .ref-num {
+    width: 38px;
+    height: 38px;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .ref-step strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-slate);
+    margin-bottom: 0.25rem;
+  }
+
+  .ref-step p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--color-slate);
+    opacity: 0.72;
+  }
+
+  /* ——— Contact ——— */
+  .contact-section {
+    background-color: var(--color-forest);
+    padding: 5.5rem 0;
+  }
+
+  .contact-inner {
+    max-width: 580px;
+  }
+
+  .contact-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--color-cream);
+    margin: 0 0 1.125rem;
+  }
+
+  .contact-inner > p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.75);
+    margin: 0 0 2rem;
+    max-width: 52ch;
+  }
+
+  .contact-note {
+    margin-top: 1.125rem !important;
+    font-size: 0.875rem !important;
+    opacity: 0.6 !important;
+  }
+
+  .contact-note a {
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+
+  .contact-note a:hover {
+    text-decoration: underline;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .btn-primary:hover { opacity: 0.88; }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 768px) {
+    .referral-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .audience-section,
+    .referral-section,
+    .contact-section { padding: 3.5rem 0; }
+  }
+</style>
