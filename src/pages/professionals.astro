@@ -209,7 +209,8 @@ const steps = [
 
       <div class="form-card">
         <!-- PLACEHOLDER: wire to Resend / form backend when ready -->
-        <form action="#" method="POST" class="enquiry-form" novalidate>
+        <!-- PLACEHOLDER: wire to Resend / form backend when ready -->
+        <form action="/api/submit-enquiry" method="POST" class="enquiry-form" id="enquiry-form" novalidate>
 
           <div class="field-row field-row--2col">
             <div class="field">
@@ -289,6 +290,8 @@ const steps = [
               placeholder="Tell us about your practice or any questions you have…"
             ></textarea>
           </div>
+
+          <div id="form-status" role="alert" aria-live="polite" class="form-status" hidden></div>
 
           <button type="submit" class="submit-btn">Send enquiry</button>
 
@@ -791,6 +794,26 @@ const steps = [
     line-height: 1.6;
   }
 
+  .form-status {
+    padding: 0.875rem 1.125rem;
+    border-radius: 7px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .form-status[data-state="success"] {
+    background-color: #d4edda;
+    color: #1d6330;
+    border: 1px solid #b1dfbb;
+  }
+
+  .form-status[data-state="error"] {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
   /* ——— Responsive ——— */
   @media (max-width: 768px) {
     .page-hero { padding: 4rem 0 3.5rem; }
@@ -832,3 +855,61 @@ const steps = [
     .form-card { padding: 1.5rem; }
   }
 </style>
+
+<script>
+  const form = document.getElementById('enquiry-form');
+  const statusEl = document.getElementById('form-status');
+  const btn = form?.querySelector('button[type="submit"]');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    for (const field of ['full_name', 'email', 'practice_name', 'role']) {
+      if (!data.get(field)?.toString().trim()) {
+        show('error', 'Please fill in all required fields.');
+        form.querySelector(`[name="${field}"]`)?.focus();
+        return;
+      }
+    }
+
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Sending…';
+    hide();
+
+    try {
+      const res = await fetch('/api/submit-enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(data.entries())),
+      });
+      const json = await res.json().catch(() => ({}));
+
+      if (res.ok && json.ok) {
+        show('success', "Thank you — we'll be in touch within one business day.");
+        form.reset();
+      } else {
+        show('error', json.error ?? 'Something went wrong. Please try again.');
+      }
+    } catch {
+      show('error', 'Could not send your enquiry. Please check your connection and try again.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  });
+
+  function show(state, message) {
+    statusEl.removeAttribute('hidden');
+    statusEl.dataset.state = state;
+    statusEl.textContent = message;
+    statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function hide() {
+    statusEl.setAttribute('hidden', '');
+    delete statusEl.dataset.state;
+    statusEl.textContent = '';
+  }
+</script>
