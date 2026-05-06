@@ -40,15 +40,31 @@ const faqs = [
   },
   {
     q: 'What currency are prices in?',
-    a: 'Prices are in GBP (£). We currently serve families primarily in the UK.',
+    a: 'Prices shown are in GBP (£). Heirly serves families in the UK, Australia, and New Zealand — get in touch if you have questions about pricing in your region.',
   },
 ];
 ---
 
 <Layout
+  fullTitle="Heirly Pricing — Estate Settlement Software | Free to Start"
   title="Pricing"
-  description="Heirly pricing — free for up to 10 items, or £99 one-time for full estate settlement. No subscription."
+  description="Heirly is free for estates up to 10 items. Full estate settlement — unlimited items, financial rounds, PDF export, and audit trail — is a one-time payment. No subscription."
+  ogImage="/og/og-home.png"
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    })} />
+  </Fragment>
 
   <!-- ——— Page hero ——— -->
   <section class="page-hero">

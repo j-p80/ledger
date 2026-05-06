@@ -69,9 +69,42 @@ const paidPlanFeatures = [
 ---
 
 <Layout
-  title="A structured way to divide what matters most"
-  description="Heirly helps executors catalogue an estate, invite family members, and reach a fair allocation of belongings — with full transparency and no family conflict."
+  title="Estate Settlement Software for Executors & Families"
+  description="Heirly is estate settlement software for executors — catalogue belongings, invite family members, and reach a fair, transparent allocation without conflict. Free for up to 10 items. No credit card required."
+  ogImage="/og/og-home.png"
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://heirly.app/#org",
+          "name": "Heirly",
+          "url": "https://heirly.app",
+          "logo": "https://heirly.app/favicon.svg",
+          "description": "Estate settlement software for executors and families in the UK, Australia, and New Zealand.",
+          "areaServed": ["GB", "AU", "NZ"]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://heirly.app/#app",
+          "name": "Heirly",
+          "url": "https://heirly.app",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP",
+            "description": "Free for up to 10 items. One-time payment for full estate settlement."
+          },
+          "description": "Estate settlement software that helps executors catalogue belongings, run transparent allocation rounds, and settle an estate fairly.",
+          "publisher": { "@id": "https://heirly.app/#org" }
+        }
+      ]
+    })} />
+  </Fragment>
 
   <!-- ——— Hero ——— -->
   <section class="hero">
@@ -248,7 +281,7 @@ const paidPlanFeatures = [
           <h3 class="who-title">Executors</h3>
           <p class="who-desc">
             You have enough on your plate. Heirly gives you a structured, respectful way to manage
-            the distribution of belongings — without chasing people, managing spreadsheets, or
+            the <a href="/how-it-works" class="inline-link-cream">distribution of belongings</a> — without chasing people, managing spreadsheets, or
             mediating arguments. Invite the family, open a round when you're ready, and let the
             process do the heavy lifting.
           </p>
@@ -967,5 +1000,14 @@ const paidPlanFeatures = [
     .trust-bar {
       gap: 0.25rem;
     }
+  }
+
+  .inline-link-cream {
+    color: var(--color-cream);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link-cream:hover {
+    opacity: 0.8;
   }
 </style>

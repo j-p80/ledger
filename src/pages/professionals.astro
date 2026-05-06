@@ -5,7 +5,8 @@ const featureCards = [
   {
     icon: '⚖',
     title: 'Reduces disputes that land on your desk',
-    body: "Family conflict over belongings is one of the most time-consuming parts of probate. Heirly's structured round system resolves the majority of items automatically — and gives you a full audit trail if anything is later questioned.",
+    body: "Family conflict over belongings is one of the most time-consuming parts of probate. Heirly's <a href=\"/how-it-works\" class=\"inline-link\">structured round system</a> resolves the majority of items automatically — and gives you a full audit trail if anything is later questioned.",
+    htmlBody: true,
   },
   {
     icon: '✦',
@@ -44,9 +45,28 @@ const steps = [
 ---
 
 <Layout
-  title="For Professionals"
-  description="Probate solicitors, funeral directors, and estate agents partner with Heirly to give families a structured, transparent way to divide an estate."
+  title="Estate Tools for Probate Solicitors & Funeral Directors"
+  description="Probate solicitors, funeral directors, and estate agents partner with Heirly to give clients a structured, transparent process for dividing estate belongings. Serving the UK, Australia, and New Zealand."
+  ogImage="/og/og-professionals.png"
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://heirly.app/professionals#service",
+      "name": "Heirly Partner Programme",
+      "url": "https://heirly.app/professionals",
+      "description": "Heirly partners with probate solicitors, funeral directors, and estate agents to provide clients with a structured, transparent estate allocation process.",
+      "areaServed": ["GB", "AU", "NZ"],
+      "serviceType": "Estate Settlement Software",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://heirly.app/#org",
+        "name": "Heirly",
+        "url": "https://heirly.app"
+      }
+    })} />
+  </Fragment>
 
   <!-- ——— 2A: Hero ——— -->
   <section class="page-hero">
@@ -56,7 +76,7 @@ const steps = [
       <p class="hero-sub">
         Probate solicitors, funeral directors, and estate agents partner with Heirly to give
         families a structured, transparent way to divide an estate — reducing the disputes
-        that find their way back to you.
+        that find their way back to you. We work with professional partners across the UK, Australia, and New Zealand.
       </p>
       <div class="hero-actions">
         <a href="#partner-form" class="btn-gold">Enquire about partnering</a>
@@ -81,7 +101,10 @@ const steps = [
           <div class="feature-card">
             <span class="feature-icon" aria-hidden="true">{card.icon}</span>
             <h3 class="feature-title">{card.title}</h3>
-            <p class="feature-body">{card.body}</p>
+            {card.htmlBody
+              ? <p class="feature-body" set:html={card.body} />
+              : <p class="feature-body">{card.body}</p>
+            }
           </div>
         ))}
       </div>
@@ -208,8 +231,6 @@ const steps = [
       </div>
 
       <div class="form-card">
-        <!-- PLACEHOLDER: wire to Resend / form backend when ready -->
-        <!-- PLACEHOLDER: wire to Resend / form backend when ready -->
         <form action="/api/submit-enquiry" method="POST" class="enquiry-form" id="enquiry-form" novalidate>
 
           <div class="field-row field-row--2col">
@@ -853,6 +874,16 @@ const steps = [
     .field-row--2col { grid-template-columns: 1fr; }
 
     .form-card { padding: 1.5rem; }
+  }
+
+  .inline-link {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover {
+    opacity: 0.75;
   }
 </style>
 

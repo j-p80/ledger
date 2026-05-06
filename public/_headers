@@ -1,0 +1,7 @@
+# Block search engine indexing on staging
+https://ledger-878.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Allow indexing on production
+https://heirly.app/*
+  X-Robots-Tag: index, follow
