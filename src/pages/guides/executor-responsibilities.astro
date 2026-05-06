@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Executor responsibilities: what you're actually responsible for",
+  "description": "Most executors are appointed without warning. This guide explains what the role involves — legally, practically, and emotionally — and what help is available.",
+  "author": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "publisher": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "url": "https://heirly.app/guides/executor-responsibilities/",
+  "inLanguage": "en",
+  "about": { "@type": "Thing", "name": "Estate settlement" }
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".speakable-title", ".speakable-answer"]
+};
+---
+
+<Layout
+  title="Executor Responsibilities: What You're Actually Responsible For"
+  description="Most executors are appointed without warning. This guide explains what the role involves — legally, practically, and emotionally — and what help is available."
+  ogImage="/og/og-home.png"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container">
+      <p class="eyebrow">Guide</p>
+      <h1 class="speakable-title">Executor responsibilities: what you're actually responsible for</h1>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="guide-body">
+    <div class="container">
+
+      <p class="lead speakable-answer">Being named an executor in a will is an honour — and an unexpectedly large administrative task. Most executors are appointed without preparation, often while grieving, and discover the scope of the role only after the death occurs. This guide explains what an executor is actually responsible for, what you can delegate, and where the process most commonly goes wrong.</p>
+
+      <h2>What an executor is legally responsible for</h2>
+      <p>An executor's core legal duties include locating the will, notifying relevant institutions of the death, applying for the legal authority to act (a Grant of Probate in England and Wales; Confirmation in Scotland; similar processes apply in Australia, which vary by state and territory, and in New Zealand), paying outstanding debts and taxes from the estate, and distributing assets to beneficiaries. The specific requirements differ by jurisdiction — in the UK, probate is generally required for estates above a certain value; in Australia, requirements vary by state; in New Zealand, a similar process applies. When in doubt, a solicitor can advise on what your jurisdiction requires.</p>
+
+      <h2>Distributing personal belongings — the part the will often doesn't cover</h2>
+      <p>Wills frequently name specific bequests — "my watch to my son, my rings to my daughter" — but leave the bulk of personal property as residual estate, to be distributed by the executor among the beneficiaries. This is where the role becomes most demanding and most personal. Without a clear process, family expectations conflict, decisions appear arbitrary, and the executor ends up mediating disputes they weren't prepared for. <a href="/guides/how-to-divide-estate-belongings/" class="inline-link">Understanding how to approach belongings distribution</a> before you begin is one of the most useful things you can do.</p>
+
+      <h2>What executors can delegate</h2>
+      <p>Many executors feel they must handle everything personally. In practice, most of the technical work can and should be delegated. Solicitors handle probate applications and legal questions. Professional valuers assess items with significant financial value. Estate agents manage property. Estate settlement software manages the distribution of personal belongings — running the process, collecting preferences, and producing a documented outcome. Delegating doesn't mean abdicating responsibility; it means using the right tool for each part of the job.</p>
+
+      <h2>The emotional dimension</h2>
+      <p>Executors are often also grieving. Taking on administrative responsibility for an estate while processing loss is genuinely hard. The practical demands — paperwork, family communication, decision-making — arrive at the worst possible time. It is worth naming this, not minimising it. Wherever you can reduce the administrative burden, do so.</p>
+
+      <h2>How Heirly helps executors</h2>
+      <p>Heirly handles the belongings distribution part of estate administration — the part most tools ignore. It gives executors a structured, documented process without requiring them to become experts in mediation or valuation. Family members participate via email invitation with no account creation required. The executor stays in control of the pace and the final decisions.</p>
+      <div class="guide-cta-inline">
+        <a href="https://app.heirly.app" class="btn-guide" target="_blank" rel="noopener noreferrer">Start your estate free →</a>
+      </div>
+
+      <p class="disclaimer">This guide is for general information only and does not constitute legal advice.</p>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .guide-hero {
+    background: var(--color-forest);
+    color: var(--color-cream);
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0 0 1rem;
+  }
+  .speakable-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    color: var(--color-cream);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .guide-body {
+    background: var(--color-cream);
+    padding: 4rem 1.5rem 5rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 2.5rem;
+  }
+  .guide-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-forest);
+    margin: 2.75rem 0 1rem;
+  }
+  .guide-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+  .guide-body p:last-child { margin-bottom: 0; }
+
+  .inline-link {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover { opacity: 0.75; }
+
+  .guide-cta-inline { margin: 1.5rem 0 2.75rem; }
+  .btn-guide {
+    display: inline-block;
+    background: var(--color-sage);
+    color: var(--color-cream);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease;
+  }
+  .btn-guide:hover { background: var(--color-forest); }
+
+  .disclaimer {
+    font-size: 0.8125rem;
+    color: rgba(44, 62, 80, 0.5);
+    border-top: 1px solid rgba(44, 62, 80, 0.1);
+    padding-top: 2rem;
+    margin-top: 3rem !important;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .guide-body { padding: 3rem 1.5rem 4rem; }
+  }
+</style>

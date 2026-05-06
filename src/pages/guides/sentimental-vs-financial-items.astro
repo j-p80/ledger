@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sentimental vs financial items: why they need different processes",
+  "description": "Treating a family photograph the same as a piece of jewellery causes lasting conflict. Here's why sentimental and financial estate items need separate allocation processes.",
+  "author": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "publisher": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "url": "https://heirly.app/guides/sentimental-vs-financial-items/",
+  "inLanguage": "en",
+  "about": { "@type": "Thing", "name": "Estate settlement" }
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".speakable-title", ".speakable-answer"]
+};
+---
+
+<Layout
+  title="Sentimental vs Financial Items: Why They Need Different Processes"
+  description="Treating a family photograph the same as a piece of jewellery causes lasting conflict. Here's why sentimental and financial estate items need separate allocation processes."
+  ogImage="/og/og-home.png"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container">
+      <p class="eyebrow">Guide</p>
+      <h1 class="speakable-title">Sentimental vs financial items: why they need different processes</h1>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="guide-body">
+    <div class="container">
+
+      <p class="lead speakable-answer">One of the most common sources of family conflict during estate settlement is treating all belongings the same way. A gold watch and a handwritten recipe book are both "belongings" — but what makes them valuable to different people is completely different. When sentimental and financial value are conflated in the same process, the result is almost always unfair to someone.</p>
+
+      <h2>What makes an item sentimental vs financial</h2>
+      <p>Sentimental items derive their value from personal meaning — memories, connection to the deceased, emotional significance. A piece of jewellery worn every day by a parent, a book with handwritten margin notes, a childhood photograph: their worth is relational, not market-based. Financial items have a clear economic value — furniture with resale value, collectables, vehicles, art with known market prices. Some items are both, and that's where it gets genuinely complicated: a piece of antique jewellery may carry deep sentimental meaning and have significant financial value. The right process acknowledges both dimensions separately.</p>
+
+      <h2>What goes wrong when you treat them the same way</h2>
+      <p>Three scenarios repeat consistently across estate disputes. In the first, the executor runs a single process for all items — whoever gets there first, or whoever argues hardest, receives the sentimental item. The outcome may be financially "fair" but emotionally devastating. In the second, financial negotiations are contaminated by emotional attachment: someone inflates the value of an item they want to keep, or agrees to undervalue something they don't care about. In the third, family members leave the process feeling that money trumped meaning — that what mattered most to them was treated as a transaction. These feelings last for years.</p>
+
+      <h2>How a structured approach separates them</h2>
+      <p>Best practice is to run two distinct processes. For sentimental items, use a preference-based approach: each person says what they'd like and why. When only one person wants something, it goes to them without negotiation. When multiple people want the same item, the executor makes a considered decision based on the expressed preferences — with full transparency. For financial items, use a share-based allocation process that accounts for each beneficiary's entitlement under the will. Crucially, the outcome of one process should never influence the other. Someone who receives a sentimental item they wanted shouldn't be penalised in the financial round — and vice versa.</p>
+
+      <h2>How Heirly handles this distinction</h2>
+      <p>Heirly runs sentimental and financial rounds as completely separate processes — the outcome of one never affects the other. Family members express preferences for sentimental items without worrying about financial consequences. Financial allocation happens independently, based on estate share and item value. Every decision in both processes is visible to all participants, with a full audit trail.</p>
+      <div class="guide-cta-inline">
+        <a href="/how-it-works/" class="btn-guide">See how it works →</a>
+      </div>
+
+      <p class="disclaimer">This guide is for general information only and does not constitute legal advice.</p>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .guide-hero {
+    background: var(--color-forest);
+    color: var(--color-cream);
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0 0 1rem;
+  }
+  .speakable-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    color: var(--color-cream);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .guide-body {
+    background: var(--color-cream);
+    padding: 4rem 1.5rem 5rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 2.5rem;
+  }
+  .guide-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-forest);
+    margin: 2.75rem 0 1rem;
+  }
+  .guide-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+  .guide-body p:last-child { margin-bottom: 0; }
+
+  .inline-link {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover { opacity: 0.75; }
+
+  .guide-cta-inline { margin: 1.5rem 0 2.75rem; }
+  .btn-guide {
+    display: inline-block;
+    background: var(--color-sage);
+    color: var(--color-cream);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease;
+  }
+  .btn-guide:hover { background: var(--color-forest); }
+
+  .disclaimer {
+    font-size: 0.8125rem;
+    color: rgba(44, 62, 80, 0.5);
+    border-top: 1px solid rgba(44, 62, 80, 0.1);
+    padding-top: 2rem;
+    margin-top: 3rem !important;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .guide-body { padding: 3rem 1.5rem 4rem; }
+  }
+</style>

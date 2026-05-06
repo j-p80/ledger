@@ -104,6 +104,15 @@ const paidPlanFeatures = [
         }
       ]
     })} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".hero-subheading"]
+      },
+      "url": "https://heirly.app/"
+    })} />
   </Fragment>
 
   <!-- ——— Hero ——— -->
@@ -115,7 +124,7 @@ const paidPlanFeatures = [
         <div class="hero-text">
           <p class="eyebrow">Estate settlement, simplified</p>
           <h1 class="hero-h1">A structured way to divide what matters most</h1>
-          <p class="hero-sub">
+          <p class="hero-sub hero-subheading">
             Heirly helps executors catalogue an estate, invite family members, and reach a fair
             allocation of belongings — with full transparency and no family conflict.
           </p>
