@@ -74,36 +74,32 @@ const paidPlanFeatures = [
   ogImage="/og/og-home.png"
 >
   <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://heirly.app/#org",
-          "name": "Heirly",
-          "url": "https://heirly.app",
-          "logo": "https://heirly.app/favicon.svg",
-          "description": "Estate settlement software for executors and families in the UK, Australia, and New Zealand.",
-          "areaServed": ["GB", "AU", "NZ"]
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://heirly.app/#app",
-          "name": "Heirly",
-          "url": "https://heirly.app",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "GBP",
-            "description": "Free for up to 10 items. One-time payment for full estate settlement."
-          },
-          "description": "Estate settlement software that helps executors catalogue belongings, run transparent allocation rounds, and settle an estate fairly.",
-          "publisher": { "@id": "https://heirly.app/#org" }
-        }
-      ]
-    })} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Heirly",
+        "url": "https://heirly.app",
+        "logo": "https://heirly.app/og/og-home.png",
+        "description": "Estate settlement software helping executors and families divide belongings fairly and transparently after a loss.",
+        "contactPoint": {"@type": "ContactPoint", "email": "hello@heirly.app", "contactType": "customer support"},
+        "areaServed": ["GB", "AU", "NZ"],
+        "availableLanguage": "English"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Heirly",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS",
+        "url": "https://heirly.app",
+        "description": "Estate settlement software for executors and families — catalogue belongings, run allocation rounds, and produce a transparent settlement ledger.",
+        "offers": [
+          {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "GBP", "description": "Up to 10 items, sentimental allocation rounds, family invitation."},
+          {"@type": "Offer", "name": "Full Estate", "price": "99", "priceCurrency": "GBP", "description": "Unlimited items, financial rounds, settlement calculator, PDF export."}
+        ]
+      }
+    ])} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",

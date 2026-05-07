@@ -47,24 +47,19 @@ const steps = [
 <Layout
   title="Estate Tools for Probate Solicitors & Funeral Directors"
   description="Probate solicitors, funeral directors, and estate agents partner with Heirly to give clients a structured, transparent process for dividing estate belongings. Serving the UK, Australia, and New Zealand."
-  ogImage="/og/og-professionals.png"
+  ogImage="/og/og-home.png"
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://heirly.app/professionals#service",
-      "name": "Heirly Partner Programme",
+      "name": "Heirly — Professional Partnerships",
       "url": "https://heirly.app/professionals",
-      "description": "Heirly partners with probate solicitors, funeral directors, and estate agents to provide clients with a structured, transparent estate allocation process.",
+      "description": "Heirly partners with probate solicitors, funeral directors, and estate agents in the UK, Australia, and New Zealand to provide clients with structured, transparent estate settlement.",
       "areaServed": ["GB", "AU", "NZ"],
-      "serviceType": "Estate Settlement Software",
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://heirly.app/#org",
-        "name": "Heirly",
-        "url": "https://heirly.app"
-      }
+      "availableLanguage": "English",
+      "email": "partners@heirly.app",
+      "audience": {"@type": "Audience", "audienceType": "Probate solicitors, funeral directors, estate agents"}
     })} />
   </Fragment>
 

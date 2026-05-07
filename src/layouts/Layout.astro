@@ -39,7 +39,7 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteBase}${ogI
     <link rel="alternate" hreflang="en-AU" href={canonicalURL} />
     <link rel="alternate" hreflang="en-NZ" href={canonicalURL} />
     <link rel="alternate" hreflang="x-default" href={canonicalURL} />
-    {import.meta.env.SITE !== 'https://heirly.app' && <meta name="robots" content="noindex" />}
+    {import.meta.env.SITE !== 'https://heirly.app' && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
