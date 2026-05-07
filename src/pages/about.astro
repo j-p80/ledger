@@ -32,6 +32,15 @@ const orgSchema = {
   <Fragment slot="head">
     <!-- PLACEHOLDER: add LinkedIn, Crunchbase, Companies House URL when available -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".speakable-answer"]
+      },
+      "url": "https://heirly.app/about/"
+    })} />
   </Fragment>
 
   <!-- Hero -->
@@ -45,7 +54,7 @@ const orgSchema = {
   <!-- Entity paragraph -->
   <section class="about-section bg-cream">
     <div class="container">
-      <p class="entity-para">Heirly is estate settlement software founded in 2026. It helps executors and families in the UK, Australia, and New Zealand catalogue a deceased person's belongings, invite family members to participate, run structured allocation rounds, and produce a transparent settlement ledger. The system is designed to reduce family conflict, remove spreadsheet administration, and give every participant a clear, documented record of how decisions were made.</p>
+      <p class="entity-para speakable-answer">Heirly is estate settlement software founded in 2026. It helps executors and families in the UK, Australia, and New Zealand catalogue a deceased person's belongings, invite family members to participate, run structured allocation rounds, and produce a transparent settlement ledger. The system is designed to reduce family conflict, remove spreadsheet administration, and give every participant a clear, documented record of how decisions were made.</p>
     </div>
   </section>
 
