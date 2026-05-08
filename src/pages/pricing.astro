@@ -19,16 +19,16 @@ const paidPlanFeatures = [
 
 const faqs = [
   {
+    q: 'Is Heirly really free right now?',
+    a: 'Yes. Heirly is in early access — both tiers are completely free while we work with founding estates to refine the product. Pricing will be introduced once early access closes, and all early access estates will be notified well in advance.',
+  },
+  {
     q: 'Is this a subscription?',
     a: 'No. Heirly charges a one-time payment per estate. There are no monthly fees, no renewals, and nothing to cancel. You pay once, for one estate, and the tools are yours for as long as you need them.',
   },
   {
-    q: 'Can I try before paying?',
-    a: 'Yes. The free tier lets you catalogue up to 10 items and run sentimental allocation rounds at no cost. You can invite family members and complete a full settlement within the free tier if your estate has 10 or fewer items.',
-  },
-  {
     q: 'What happens when I reach the 10 item limit?',
-    a: "You'll see an upgrade prompt when you try to add an 11th item. No data is lost — everything you've added remains exactly as you left it. Upgrading unlocks unlimited items and the financial allocation tools.",
+    a: "During early access, the 10 item limit on the free tier still applies. If your estate has more than 10 items, request early access to the full tier and we'll enable it for you manually.",
   },
   {
     q: 'How does the family access the estate?',
@@ -38,17 +38,13 @@ const faqs = [
     q: 'Is my data secure?',
     a: "Yes. Heirly is built on Supabase with row-level security, meaning each user can only see the data they're permitted to access. All documents and photos are stored in private, access-controlled storage. We take the security of sensitive family data seriously.",
   },
-  {
-    q: 'What currency are prices in?',
-    a: 'Prices shown are in GBP (£). Heirly serves families in the UK, Australia, and New Zealand — get in touch if you have questions about pricing in your region.',
-  },
 ];
 ---
 
 <Layout
-  fullTitle="Heirly Pricing — Estate Settlement Software | Free to Start"
+  fullTitle="Heirly Pricing — Free During Early Access"
   title="Pricing"
-  description="Heirly is free for estates up to 10 items. Full estate settlement — unlimited items, financial rounds, PDF export, and audit trail — is a one-time payment. No subscription."
+  description="Heirly is free during early access — both tiers, no credit card required. Pricing will be introduced once early access closes. All early access estates notified in advance."
   ogImage="/og/og-home.png"
 >
   <Fragment slot="head">
@@ -70,7 +66,7 @@ const faqs = [
   <section class="page-hero">
     <div class="container">
       <h1>Simple, transparent pricing</h1>
-      <p class="lead">One payment per estate. No subscriptions. No surprises.</p>
+      <p class="lead">Free during early access. No credit card required.</p>
     </div>
   </section>
 
@@ -88,16 +84,34 @@ const faqs = [
         />
         <PricingCard
           plan="Full estate"
-          price="£99"
-          priceNote="One-time per estate"
+          price="Free"
+          priceNote="during early access"
           features={paidPlanFeatures}
-          cta="Get started"
-          ctaHref="https://app.heirly.app"
+          cta="Request early access"
+          ctaHref="mailto:hello@heirly.app?subject=Early%20Access%20Request"
           highlighted={true}
-          badge="Most estates"
         />
       </div>
-      <p class="pricing-note">One payment. One estate. No subscription.</p>
+      <p class="pricing-note">Pricing will be introduced once early access closes. Early access estates will be notified in advance.</p>
+    </div>
+  </section>
+
+  <!-- ——— Notify ——— -->
+  <section class="notify-section">
+    <div class="container">
+      <h2 class="notify-heading">Not ready yet?</h2>
+      <p class="notify-sub">Leave your email and we'll let you know when Heirly opens to new estates.</p>
+      <form class="notify-form" id="notify-form" novalidate>
+        <input
+          type="email"
+          name="notify_email"
+          class="notify-input"
+          placeholder="your@email.com"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="notify-btn">Notify me</button>
+      </form>
     </div>
   </section>
 
@@ -120,7 +134,7 @@ const faqs = [
   <section class="cta-section">
     <div class="container cta-inner">
       <h2>Start your estate today</h2>
-      <p>No credit card required for the free tier.</p>
+      <p>No credit card required. No commitment. Just a better way to settle an estate.</p>
       <a
         href="https://app.heirly.app"
         class="btn-primary"
@@ -295,9 +309,76 @@ const faqs = [
 
   .btn-primary:hover { opacity: 0.88; }
 
+  /* ——— Notify ——— */
+  .notify-section {
+    background-color: var(--color-cream);
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .notify-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+    color: var(--color-slate);
+    margin: 0 0 0.625rem;
+  }
+
+  .notify-sub {
+    font-size: 1rem;
+    color: var(--color-slate);
+    opacity: 0.62;
+    margin: 0 0 1.75rem;
+  }
+
+  .notify-form {
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .notify-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid rgba(45, 74, 62, 0.2);
+    border-radius: 7px;
+    font-size: 0.9375rem;
+    font-family: var(--font-body);
+    color: var(--color-slate);
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .notify-input:focus {
+    border-color: var(--color-sage);
+  }
+
+  .notify-btn {
+    padding: 0.75rem 1.375rem;
+    background-color: var(--color-sage);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .notify-btn:hover {
+    background-color: var(--color-forest);
+  }
+
   /* ——— Responsive ——— */
   @media (max-width: 640px) {
     .pricing-section,
+    .notify-section,
     .faq-section,
     .cta-section { padding: 3.5rem 0; }
 
@@ -307,3 +388,13 @@ const faqs = [
     }
   }
 </style>
+
+<script>
+  document.getElementById('notify-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement;
+    const email = (form.querySelector('[name="notify_email"]') as HTMLInputElement)?.value.trim();
+    if (!email) return;
+    window.location.href = `mailto:hello@heirly.app?subject=Notify%20me%20when%20Heirly%20opens&body=${encodeURIComponent(email)}`;
+  });
+</script>
