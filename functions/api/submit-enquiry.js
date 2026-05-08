@@ -16,7 +16,7 @@ export async function onRequestPost({ request, env }) {
     return jsonError(400, 'Invalid request body');
   }
 
-  const { full_name, email, practice_name, role } = body;
+  const { full_name, email, practice_name, role, country } = body;
   if (!full_name?.trim() || !email?.trim() || !practice_name?.trim() || !role?.trim()) {
     return jsonError(422, 'Missing required fields');
   }
@@ -26,6 +26,9 @@ export async function onRequestPost({ request, env }) {
   const validRoles = ['probate-solicitor', 'funeral-director', 'estate-agent', 'other'];
   if (!validRoles.includes(role)) {
     return jsonError(422, 'Invalid role value');
+  }
+  if (!country?.trim()) {
+    return jsonError(422, 'Please select your country.');
   }
 
   const res = await fetch(`${env.SUPABASE_URL}/rest/v1/partner_enquiries`, {
@@ -41,10 +44,12 @@ export async function onRequestPost({ request, env }) {
       email:           email.trim().toLowerCase().slice(0, 254),
       practice_name:   practice_name.trim().slice(0, 200),
       role,
+      country:         country.trim().slice(0, 2),
       client_volume:   body.client_volume   || null,
       referral_source: body.referral_source?.trim().slice(0, 500) || null,
       message:         body.message?.trim().slice(0, 2000)        || null,
       ip_address:      request.headers.get('CF-Connecting-IP'),
+      cf_country:      request.headers.get('CF-IPCountry') || null,
     }),
   });
 
