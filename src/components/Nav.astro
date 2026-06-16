@@ -8,7 +8,14 @@ const navLinks = [
 
 <header class="nav-wrapper">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="Heirly — home">Heirly</a>
+    <a href="/" class="nav-logo" aria-label="Heirly home">
+      <img
+        src="/heirly-basiclogo.png"
+        alt="Heirly"
+        height="36"
+        style="display: block; height: 36px; width: auto;"
+      />
+    </a>
 
     <button
       class="nav-hamburger"
@@ -59,13 +66,10 @@ const navLinks = [
   }
 
   .nav-logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--color-forest);
     text-decoration: none;
-    letter-spacing: -0.01em;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
 
   .nav-menu {

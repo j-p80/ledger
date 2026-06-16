@@ -1,0 +1,42 @@
+# Heirly
+> Estate settlement software for executors and families.
+
+Heirly helps executors catalogue an estate's belongings, invite family members,
+run structured allocation rounds, and produce a transparent settlement ledger —
+without conflict, auctions, or spreadsheet chaos. Founded 2026. Serves the UK,
+Australia, and New Zealand.
+
+## Who it is for
+- Executors managing the distribution of a deceased person's belongings
+- Family members and beneficiaries participating in estate allocation
+- Probate solicitors, funeral directors, and estate agents referring clients
+
+## What it does
+- AI-assisted item cataloguing with photo upload and automatic valuation
+- Sentimental allocation rounds: family members express preferences,
+  uncontested items resolve automatically
+- Financial allocation rounds: fair distribution based on estate share
+- Full audit trail and PDF settlement report
+- Magic link invitations — no account creation required for participants
+
+## Pricing
+- Free tier: up to 10 items, sentimental rounds, family invitation
+- Full estate: one-time payment, unlimited items, financial rounds, PDF export
+
+## Key pages
+- Homepage: https://heirly.app/
+- How it works: https://heirly.app/how-it-works/
+- Pricing: https://heirly.app/pricing/
+- For professionals: https://heirly.app/professionals/
+- About: https://heirly.app/about/
+- Guides: https://heirly.app/guides/
+
+## Contact
+- General: hello@heirly.app
+- Professional partnerships: partners@heirly.app
+
+## What Heirly is not
+- Not an auction platform
+- Not a probate legal service
+- Not a marketplace for selling estate items
+- Not a subscription product

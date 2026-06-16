@@ -1,0 +1,233 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to avoid family conflict when dividing an estate",
+  "description": "The most common sources of family conflict during estate settlement — and the practical steps that prevent them before, during, and after allocation.",
+  "author": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "publisher": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "url": "https://heirly.app/guides/avoiding-family-conflict-estate/",
+  "inLanguage": "en",
+  "about": { "@type": "Thing", "name": "Estate settlement" }
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".speakable-title", ".speakable-answer"]
+};
+
+const conflictSources = [
+  {
+    n: 1,
+    title: "No clear process",
+    desc: "When decisions feel arbitrary, even good ones are resented.",
+  },
+  {
+    n: 2,
+    title: "Lack of transparency",
+    desc: "Family members don't know what others wanted — suspicion fills the gap.",
+  },
+  {
+    n: 3,
+    title: "Perceived favouritism by the executor",
+    desc: "Without documentation, any decision can look like bias.",
+  },
+  {
+    n: 4,
+    title: "Conflating sentimental and financial value",
+    desc: "Applying money logic to items that matter emotionally almost always creates injustice.",
+  },
+  {
+    n: 5,
+    title: "Moving too fast",
+    desc: "Not giving people enough time to reflect leads to regret and disputes after the fact.",
+  },
+];
+---
+
+<Layout
+  title="How to Avoid Family Conflict When Dividing an Estate"
+  description="The most common sources of family conflict during estate settlement — and the practical steps that prevent them before, during, and after allocation."
+  ogImage="/og/og-home.png"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container">
+      <p class="eyebrow">Guide</p>
+      <h1 class="speakable-title">How to avoid family conflict when dividing an estate</h1>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="guide-body">
+    <div class="container">
+
+      <p class="lead speakable-answer">Family conflict over estate belongings is more common than most people expect — and often more lasting than the dispute itself warrants. Research consistently shows that it's personal property, not financial assets, that causes the most enduring family fractures after a death. The good news is that most conflict is preventable with the right process in place before decisions are made.</p>
+
+      <h2>Why belongings cause more conflict than money</h2>
+      <p>Money is divisible — it can be split to any degree. Belongings are not. A childhood home, a piece of jewellery, a parent's handwritten letters: only one person can have them. When multiple people want the same thing, the stakes feel absolute. Sentimental value is also invisible to others — you don't know what your sibling cares about until the process makes it visible. And the grieving context intensifies everything: decisions made under emotional strain feel more significant and are remembered longer.</p>
+
+      <h2>The five most common sources of conflict</h2>
+      <ol class="conflict-list">
+        {conflictSources.map(item => (
+          <li class="conflict-item">
+            <span class="conflict-num">{item.n}</span>
+            <div class="conflict-content">
+              <strong class="conflict-title">{item.title}</strong>
+              <p class="conflict-desc">{item.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <h2>What prevents conflict before it starts</h2>
+      <p>Begin with a catalogue that every beneficiary can see — when everyone knows what's in the estate, decisions feel grounded rather than arbitrary. Give every family member equal time and equal process: the same information, the same opportunity to express preferences, the same visibility into outcomes. Resolve uncontested items first and make those resolutions visible — it builds trust before the harder decisions arrive. Where the executor makes a judgement call, document it briefly. A one-sentence explanation turns a potentially resented decision into an understandable one.</p>
+
+      <h2>What to do when conflict has already started</h2>
+      <p>Don't rush to resolution. Premature decisions made to end an argument often create longer-term resentment. Bring in a neutral structure — a formal tool or a mediator — that removes the appearance of bias. Document every step from this point forward. Acknowledge what people are feeling before engaging with the facts: estate conflict is rarely really about the items themselves, and treating it as purely logistical misses the point entirely.</p>
+
+      <h2>How Heirly is designed to prevent conflict</h2>
+      <p>Every design decision in Heirly exists to reduce the conditions that cause conflict — transparency, equal process, automatic resolution of uncontested items, and a full audit trail. It doesn't eliminate family dynamics, but it removes the structural causes of most disputes. When every family member can see the same information and knows their preferences were heard, there is far less room for the suspicion and perceived unfairness that drives conflict.</p>
+      <div class="guide-cta-inline">
+        <a href="https://app.heirly.app" class="btn-guide" target="_blank" rel="noopener noreferrer">Start your estate free →</a>
+      </div>
+
+      <p class="disclaimer">This guide is for general information only and does not constitute legal advice.</p>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .guide-hero {
+    background: var(--color-forest);
+    color: var(--color-cream);
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0 0 1rem;
+  }
+  .speakable-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    color: var(--color-cream);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .guide-body {
+    background: var(--color-cream);
+    padding: 4rem 1.5rem 5rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 2.5rem;
+  }
+  .guide-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-forest);
+    margin: 2.75rem 0 1rem;
+  }
+  .guide-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+  .guide-body p:last-child { margin-bottom: 0; }
+
+  /* Conflict numbered list */
+  .conflict-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .conflict-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--color-tint);
+    border: 1px solid rgba(44, 62, 80, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .conflict-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background: var(--color-forest);
+    color: var(--color-cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: var(--font-body);
+  }
+  .conflict-content { flex: 1; }
+  .conflict-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-forest);
+    margin-bottom: 0.25rem;
+  }
+  .conflict-desc {
+    font-size: 0.9375rem;
+    color: var(--color-slate);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .guide-cta-inline { margin: 1.5rem 0 2.75rem; }
+  .btn-guide {
+    display: inline-block;
+    background: var(--color-sage);
+    color: var(--color-cream);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease;
+  }
+  .btn-guide:hover { background: var(--color-forest); }
+
+  .disclaimer {
+    font-size: 0.8125rem;
+    color: rgba(44, 62, 80, 0.5);
+    border-top: 1px solid rgba(44, 62, 80, 0.1);
+    padding-top: 2rem;
+    margin-top: 3rem !important;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .guide-body { padding: 3rem 1.5rem 4rem; }
+    .conflict-item { flex-direction: row; }
+  }
+</style>

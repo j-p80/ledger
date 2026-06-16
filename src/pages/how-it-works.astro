@@ -3,15 +3,27 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="How it works"
-  description="A guided walkthrough of how Heirly helps families divide an estate fairly, transparently, and without conflict."
+  title="How Estate Allocation Works"
+  description="Learn how Heirly guides executors and families through estate allocation — from cataloguing belongings to sentimental rounds, financial settlement, and a full audit report. Free to start."
+  ogImage="/og/og-home.png"
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".page-intro"]
+      },
+      "url": "https://heirly.app/how-it-works/"
+    })} />
+  </Fragment>
 
   <!-- ——— Page hero ——— -->
   <section class="page-hero">
     <div class="container">
       <h1>How Heirly works</h1>
-      <p class="lead">
+      <p class="lead page-intro">
         Heirly guides families through the division of an estate in structured rounds — always
         transparent, always at the executor's pace, always with dignity.
       </p>
@@ -39,7 +51,7 @@ import Layout from '../layouts/Layout.astro';
             financial value.
           </p>
           <div class="callout callout--sage">
-            <strong>Free tier:</strong> Catalogue up to 10 items and run sentimental allocation
+            <strong>Free tier:</strong> Catalogue up to <a href="/pricing" class="inline-link">10 items</a> and run sentimental allocation
             rounds at no cost. No credit card required.
           </div>
         </div>
@@ -387,5 +399,15 @@ import Layout from '../layouts/Layout.astro';
 
     .principles-section,
     .cta-section { padding: 3.5rem 0; }
+  }
+
+  .inline-link {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover {
+    opacity: 0.75;
   }
 </style>

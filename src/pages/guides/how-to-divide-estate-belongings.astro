@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to divide belongings fairly after a death",
+  "description": "A practical guide for executors on dividing personal property after a death — the process, what goes wrong, and how to keep it fair for the whole family.",
+  "author": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "publisher": { "@type": "Organization", "name": "Heirly", "url": "https://heirly.app" },
+  "url": "https://heirly.app/guides/how-to-divide-estate-belongings/",
+  "inLanguage": "en",
+  "about": { "@type": "Thing", "name": "Estate settlement" }
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": [".speakable-title", ".speakable-answer"]
+};
+---
+
+<Layout
+  title="How to Divide Belongings Fairly After a Death"
+  description="A practical guide for executors on dividing personal property after a death — the process, what goes wrong, and how to keep it fair for the whole family."
+  ogImage="/og/og-home.png"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="guide-hero">
+    <div class="container">
+      <p class="eyebrow">Guide</p>
+      <h1 class="speakable-title">How to divide belongings fairly after a death</h1>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="guide-body">
+    <div class="container">
+
+      <p class="lead speakable-answer">Dividing personal belongings after someone dies is one of the most emotionally charged tasks an executor faces. Unlike financial assets, belongings carry sentimental meaning that varies enormously between family members — and there is no standard legal process that tells you how to do it fairly. Most families handle it informally, which is often where conflict begins.</p>
+
+      <h2>What the executor is responsible for</h2>
+      <p>As executor, you have legal authority over the estate — but the distribution of personal belongings typically happens by family agreement rather than court order. The will may name specific items for specific people (known as specific bequests), and those should be honoured first. Everything else becomes part of the residual estate, to be divided among beneficiaries according to the will's terms or, where the will is silent, by agreement. Most executors underestimate how much of an estate falls into this residual category.</p>
+
+      <h2>Why informal processes tend to fail</h2>
+      <p>Three failure modes account for the majority of disputes. First, when there is no clear process, decisions appear arbitrary — even when made in good faith, they can feel unfair to those not in the room when they were made. Second, without transparency, family members don't know what others wanted, which breeds suspicion and resentment long after the estate is settled. Third, conflating sentimental and financial value almost always creates injustice: treating a handwritten letter the same as an antique watch means either the financially significant item gets undervalued or the sentimental item gets fought over on financial terms. Each of these failure modes is preventable with the right structure in place.</p>
+
+      <h2>A structured approach to fair division</h2>
+      <p>The most reliable approach starts with a complete catalogue: every item documented and visible to all beneficiaries before any allocation begins. Next, separate items by type — sentimental items and financial items follow different processes. Give everyone equal visibility and equal time to express their preferences. Resolve uncontested items first — when only one person wants something, give it to them and move on. Genuine conflicts, where multiple people want the same item for deeply personal reasons, are far rarer than most executors expect. A structured process surfaces them clearly rather than letting them simmer.</p>
+
+      <h2>Sentimental items need a different process than financial ones</h2>
+      <p>One of the most consistent causes of estate conflict is applying financial logic to sentimental items — or the reverse. A childhood photograph has no market value but may matter deeply to one sibling and not at all to another. Treating it the same as a piece of jewellery with a known resale value creates a category error that almost always feels unfair to someone. Understanding <a href="/guides/sentimental-vs-financial-items/" class="inline-link">why sentimental and financial items need separate processes</a> is one of the most important steps an executor can take before starting.</p>
+
+      <h2>How digital tools can help</h2>
+      <p>Estate settlement software handles the structural part of the problem — cataloguing, preference collection, round management, and audit trail — so the executor can focus on the human part. These tools don't eliminate family dynamics, but they remove the conditions that cause most conflict: opacity, informality, and the appearance of bias.</p>
+      <p>Heirly is designed specifically for this — it guides executors through cataloguing, runs structured allocation rounds, and gives every family member a transparent view of how decisions were made. It's free for estates up to 10 items.</p>
+      <div class="guide-cta-inline">
+        <a href="/how-it-works/" class="btn-guide">See how Heirly works →</a>
+      </div>
+
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Does the executor have to divide belongings equally?</summary>
+          <p class="faq-a">No — equal division is one option but rarely the right one. The executor's duty is to follow the will and act in the estate's interest. Where the will is silent, fairness and family agreement guide the process. Equal shares of financial value and equal process for sentimental items is a better aim than equal quantities of physical objects.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What if family members disagree?</summary>
+          <p class="faq-a">Start with a transparent process before disagreement begins — structured rounds where everyone can see each other's preferences remove most conflict before it starts. For genuine disputes, a mediator or solicitor can help. Document every decision and the reasoning behind it, as this is your protection if something is challenged later.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do I need a solicitor to divide belongings?</summary>
+          <p class="faq-a">Not necessarily. Personal property can be distributed by agreement without legal involvement. A solicitor is advisable if the will is contested, the estate is complex, there is significant financial value in dispute, or a family member disputes an allocation after the fact. For most estates, a structured process with good documentation is sufficient.</p>
+        </details>
+      </div>
+
+      <p class="disclaimer">This guide is for general information only and does not constitute legal advice.</p>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Hero */
+  .guide-hero {
+    background: var(--color-forest);
+    color: var(--color-cream);
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin: 0 0 1rem;
+  }
+  .speakable-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    color: var(--color-cream);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* Body */
+  .guide-body {
+    background: var(--color-cream);
+    padding: 4rem 1.5rem 5rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 2.5rem;
+  }
+  .guide-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-forest);
+    margin: 2.75rem 0 1rem;
+  }
+  .guide-body p {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-slate);
+    margin: 0 0 1.25rem;
+  }
+  .guide-body p:last-child { margin-bottom: 0; }
+
+  .inline-link {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .inline-link:hover { opacity: 0.75; }
+
+  /* CTA */
+  .guide-cta-inline { margin: 1.5rem 0 2.75rem; }
+  .btn-guide {
+    display: inline-block;
+    background: var(--color-sage);
+    color: var(--color-cream);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease;
+  }
+  .btn-guide:hover { background: var(--color-forest); }
+
+  /* FAQ */
+  .faq-list {
+    margin: 0 0 2.5rem;
+    border-top: 1px solid rgba(44, 62, 80, 0.1);
+  }
+  .faq-item { border-bottom: 1px solid rgba(44, 62, 80, 0.1); }
+  .faq-q {
+    padding: 1.125rem 2rem 1.125rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-slate);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    margin: 0;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-sage);
+  }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-slate);
+    padding: 0 0 1.25rem;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    font-size: 0.8125rem;
+    color: rgba(44, 62, 80, 0.5);
+    border-top: 1px solid rgba(44, 62, 80, 0.1);
+    padding-top: 2rem;
+    margin-top: 3rem !important;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .guide-body { padding: 3rem 1.5rem 4rem; }
+  }
+</style>
