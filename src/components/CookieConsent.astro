@@ -1,0 +1,403 @@
+---
+---
+
+<div id="cc-banner" class="cc-banner" style="display:none;" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <div id="cc-simple" class="cc-view">
+    <h2 class="cc-heading">We use cookies</h2>
+    <p class="cc-subtext">
+      We use cookies to understand how people use Heirly and to improve your experience.
+      You can choose which cookies you're happy with below.
+    </p>
+    <div class="cc-buttons-row">
+      <button type="button" class="cc-btn cc-btn-primary" id="cc-accept-all">Accept all</button>
+      <button type="button" class="cc-btn cc-btn-secondary" id="cc-reject-all">Reject all</button>
+    </div>
+    <button type="button" class="cc-link-btn" id="cc-manage">Manage preferences</button>
+    <a href="/privacy-policy" class="cc-policy-link">Cookie Policy</a>
+  </div>
+
+  <div id="cc-preferences" class="cc-view" style="display:none;">
+    <h2 class="cc-heading">Cookie preferences</h2>
+
+    <div class="cc-toggle-row">
+      <div class="cc-toggle-text">
+        <span class="cc-toggle-label">Necessary</span>
+        <span class="cc-toggle-subtext">Required for the site to work. Always on.</span>
+      </div>
+      <button
+        type="button"
+        class="cc-toggle cc-toggle-disabled"
+        id="cc-toggle-necessary"
+        disabled
+        aria-pressed="true"
+        aria-label="Necessary cookies (always on)"
+      ></button>
+    </div>
+
+    <div class="cc-toggle-row">
+      <div class="cc-toggle-text">
+        <span class="cc-toggle-label">Analytics</span>
+        <span class="cc-toggle-subtext">Helps us understand how visitors use the site (Google Analytics).</span>
+      </div>
+      <button
+        type="button"
+        class="cc-toggle"
+        id="cc-toggle-analytics"
+        aria-pressed="false"
+        aria-label="Analytics cookies"
+      ></button>
+    </div>
+
+    <div class="cc-toggle-row">
+      <div class="cc-toggle-text">
+        <span class="cc-toggle-label">Marketing</span>
+        <span class="cc-toggle-subtext">Used for personalised ads and audience matching (coming soon).</span>
+      </div>
+      <button
+        type="button"
+        class="cc-toggle"
+        id="cc-toggle-marketing"
+        aria-pressed="false"
+        aria-label="Marketing cookies"
+      ></button>
+    </div>
+
+    <div class="cc-buttons-row cc-buttons-row--single">
+      <button type="button" class="cc-btn cc-btn-primary" id="cc-save-preferences">Save preferences</button>
+    </div>
+    <a href="/privacy-policy" class="cc-policy-link">Cookie Policy</a>
+  </div>
+</div>
+
+<style>
+  .cc-banner {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 9999;
+    border-radius: 8px;
+    border: 1px solid #2D4A3E;
+    background: #F5F0EB;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    padding: 24px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    color: #2C3E50;
+  }
+
+  @media (min-width: 641px) {
+    .cc-banner {
+      right: auto;
+      max-width: 420px;
+    }
+  }
+
+  .cc-heading {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2C3E50;
+    font-family: inherit;
+  }
+
+  .cc-subtext {
+    margin: 0 0 16px;
+    color: #6B7280;
+    line-height: 1.5;
+  }
+
+  .cc-buttons-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .cc-buttons-row--single {
+    margin-top: 4px;
+  }
+
+  .cc-btn {
+    flex: 1;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .cc-btn-primary {
+    background: #2D4A3E;
+    color: #F5F0EB;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+  }
+
+  .cc-btn-secondary {
+    background: transparent;
+    border: 1px solid #2D4A3E;
+    color: #2D4A3E;
+    border-radius: 6px;
+    padding: 10px 20px;
+  }
+
+  .cc-link-btn {
+    display: block;
+    margin: 12px auto 0;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #4A7C6A;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    text-align: center;
+    width: 100%;
+  }
+
+  .cc-policy-link {
+    display: block;
+    margin-top: 16px;
+    color: #4A7C6A;
+    font-size: 12px;
+    text-decoration: underline;
+  }
+
+  .cc-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .cc-toggle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cc-toggle-label {
+    font-weight: 600;
+    color: #2C3E50;
+    font-size: 14px;
+  }
+
+  .cc-toggle-subtext {
+    color: #6B7280;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .cc-toggle {
+    position: relative;
+    flex-shrink: 0;
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+    border: none;
+    background: #ccc;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+
+  .cc-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.15s ease;
+  }
+
+  .cc-toggle[aria-pressed="true"] {
+    background: #2D4A3E;
+  }
+
+  .cc-toggle[aria-pressed="true"]::after {
+    transform: translateX(18px);
+  }
+
+  .cc-toggle-disabled,
+  .cc-toggle:disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'heirly_cookie_consent';
+  const POLICY_VERSION = '1.0';
+  const GA_MEASUREMENT_ID = 'G-SYFF96HD06';
+  const CONSENT_ENDPOINT = 'https://dmthypxyqdlihrzkipgc.supabase.co/functions/v1/record_cookie_consent';
+
+  function readStoredConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  }
+
+  function injectAnalytics() {
+    if (document.getElementById('cc-ga4-loader')) return;
+
+    const loader = document.createElement('script');
+    loader.id = 'cc-ga4-loader';
+    loader.async = true;
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(loader);
+
+    const inline = document.createElement('script');
+    inline.id = 'cc-ga4-inline';
+    inline.textContent = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
+    `;
+    document.head.appendChild(inline);
+  }
+
+  function recordConsent(consentId, analytics, marketing) {
+    try {
+      fetch(CONSENT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          consent_id: consentId,
+          policy_version: POLICY_VERSION,
+          analytics,
+          marketing,
+          necessary: true,
+          user_agent: navigator.userAgent,
+        }),
+      }).catch(() => {});
+    } catch {
+      // silent — never block the user on this
+    }
+  }
+
+  function saveConsent(analytics: boolean, marketing: boolean) {
+    const existing = readStoredConsent();
+    const consentId = existing && existing.consent_id ? existing.consent_id : crypto.randomUUID();
+
+    const record = {
+      consent_id: consentId,
+      version: POLICY_VERSION,
+      timestamp: new Date().toISOString(),
+      necessary: true,
+      analytics: !!analytics,
+      marketing: !!marketing,
+    };
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+    } catch {
+      // localStorage unavailable — proceed anyway, nothing more we can do
+    }
+
+    recordConsent(consentId, record.analytics, record.marketing);
+    if (record.analytics) injectAnalytics();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cc-banner');
+    const simpleView = document.getElementById('cc-simple');
+    const prefsView = document.getElementById('cc-preferences');
+    const acceptBtn = document.getElementById('cc-accept-all');
+    const rejectBtn = document.getElementById('cc-reject-all');
+    const manageBtn = document.getElementById('cc-manage');
+    const saveBtn = document.getElementById('cc-save-preferences');
+    const analyticsToggle = document.getElementById('cc-toggle-analytics');
+    const marketingToggle = document.getElementById('cc-toggle-marketing');
+    const settingsLink = document.getElementById('cookie-settings-link');
+
+    if (!banner || !simpleView || !prefsView || !acceptBtn || !rejectBtn || !manageBtn || !saveBtn || !analyticsToggle || !marketingToggle) {
+      return;
+    }
+
+    function showSimpleView() {
+      simpleView!.style.display = '';
+      prefsView!.style.display = 'none';
+    }
+
+    function showPreferencesView() {
+      const existing = readStoredConsent();
+      analyticsToggle!.setAttribute('aria-pressed', existing && existing.analytics ? 'true' : 'false');
+      marketingToggle!.setAttribute('aria-pressed', existing && existing.marketing ? 'true' : 'false');
+      simpleView!.style.display = 'none';
+      prefsView!.style.display = '';
+    }
+
+    function showBanner() {
+      showSimpleView();
+      banner!.style.display = '';
+    }
+
+    function hideBanner() {
+      banner!.style.display = 'none';
+    }
+
+    let stored = readStoredConsent();
+    if (stored && stored.version !== POLICY_VERSION) {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // ignore
+      }
+      stored = null;
+    }
+
+    if (stored && stored.consent_id && stored.version === POLICY_VERSION) {
+      if (stored.analytics) injectAnalytics();
+    } else {
+      showBanner();
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      saveConsent(true, true);
+      hideBanner();
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      saveConsent(false, false);
+      hideBanner();
+    });
+
+    manageBtn.addEventListener('click', () => {
+      showPreferencesView();
+    });
+
+    saveBtn.addEventListener('click', () => {
+      const analytics = analyticsToggle!.getAttribute('aria-pressed') === 'true';
+      const marketing = marketingToggle!.getAttribute('aria-pressed') === 'true';
+      saveConsent(analytics, marketing);
+      hideBanner();
+    });
+
+    analyticsToggle.addEventListener('click', () => {
+      const isOn = analyticsToggle.getAttribute('aria-pressed') === 'true';
+      analyticsToggle.setAttribute('aria-pressed', isOn ? 'false' : 'true');
+    });
+
+    marketingToggle.addEventListener('click', () => {
+      const isOn = marketingToggle.getAttribute('aria-pressed') === 'true';
+      marketingToggle.setAttribute('aria-pressed', isOn ? 'false' : 'true');
+    });
+
+    if (settingsLink) {
+      settingsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showBanner();
+      });
+    }
+  });
+</script>
