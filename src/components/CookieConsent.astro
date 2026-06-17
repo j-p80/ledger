@@ -13,7 +13,7 @@
       <button type="button" class="cc-btn cc-btn-secondary" id="cc-reject-all">Reject all</button>
     </div>
     <button type="button" class="cc-link-btn" id="cc-manage">Manage preferences</button>
-    <a href="/privacy-policy" class="cc-policy-link">Cookie Policy</a>
+    <a href="/cookie-policy" class="cc-policy-link">Cookie Policy</a>
   </div>
 
   <div id="cc-preferences" class="cc-view" style="display:none;">
@@ -51,7 +51,7 @@
     <div class="cc-toggle-row">
       <div class="cc-toggle-text">
         <span class="cc-toggle-label">Marketing</span>
-        <span class="cc-toggle-subtext">Used for personalised ads and audience matching (coming soon).</span>
+        <span class="cc-toggle-subtext">Allows us to show relevant Heirly ads to people who have visited our site (Meta/Facebook).</span>
       </div>
       <button
         type="button"
@@ -65,7 +65,7 @@
     <div class="cc-buttons-row cc-buttons-row--single">
       <button type="button" class="cc-btn cc-btn-primary" id="cc-save-preferences">Save preferences</button>
     </div>
-    <a href="/privacy-policy" class="cc-policy-link">Cookie Policy</a>
+    <a href="/cookie-policy" class="cc-policy-link">Cookie Policy</a>
   </div>
 </div>
 
@@ -234,6 +234,7 @@
   const STORAGE_KEY = 'heirly_cookie_consent';
   const POLICY_VERSION = '1.0';
   const GA_MEASUREMENT_ID = 'G-SYFF96HD06';
+  const META_PIXEL_ID = '3126052964255384';
   const CONSENT_ENDPOINT = 'https://dmthypxyqdlihrzkipgc.supabase.co/functions/v1/record_cookie_consent';
 
   function readStoredConsent() {
@@ -247,16 +248,14 @@
   }
 
   function injectAnalytics() {
-    if (document.getElementById('cc-ga4-loader')) return;
+    if (document.querySelector('script[src*="G-SYFF96HD06"]')) return;
 
     const loader = document.createElement('script');
-    loader.id = 'cc-ga4-loader';
     loader.async = true;
     loader.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     document.head.appendChild(loader);
 
     const inline = document.createElement('script');
-    inline.id = 'cc-ga4-inline';
     inline.textContent = `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -266,7 +265,35 @@
     document.head.appendChild(inline);
   }
 
-  function recordConsent(consentId, analytics, marketing) {
+  function injectMarketing() {
+    if ((window as any).fbq) return;
+
+    const pixelScript = document.createElement('script');
+    pixelScript.innerHTML = `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '${META_PIXEL_ID}');
+      fbq('track', 'PageView');
+    `;
+    document.head.appendChild(pixelScript);
+
+    const pixelNoscript = document.createElement('noscript');
+    const pixelImg = document.createElement('img');
+    pixelImg.height = 1;
+    pixelImg.width = 1;
+    pixelImg.style.display = 'none';
+    pixelImg.src = `https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`;
+    pixelNoscript.appendChild(pixelImg);
+    document.body.appendChild(pixelNoscript);
+  }
+
+  function recordConsent(consentId: string, analytics: boolean, marketing: boolean) {
     try {
       fetch(CONSENT_ENDPOINT, {
         method: 'POST',
@@ -301,11 +328,12 @@
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
     } catch {
-      // localStorage unavailable — proceed anyway, nothing more we can do
+      // localStorage unavailable — proceed anyway
     }
 
     recordConsent(consentId, record.analytics, record.marketing);
     if (record.analytics) injectAnalytics();
+    if (record.marketing) injectMarketing();
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -358,6 +386,7 @@
 
     if (stored && stored.consent_id && stored.version === POLICY_VERSION) {
       if (stored.analytics) injectAnalytics();
+      if (stored.marketing) injectMarketing();
     } else {
       showBanner();
     }

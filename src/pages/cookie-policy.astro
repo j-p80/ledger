@@ -1,0 +1,530 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'June 2026';
+
+const toc = [
+  { id: 'what-are-cookies',       label: 'What are cookies' },
+  { id: 'how-heirly-uses-cookies', label: 'How Heirly uses cookies' },
+  { id: 'the-cookies-we-use',     label: 'The cookies we use' },
+  { id: 'how-to-manage',          label: 'How to manage your cookies' },
+  { id: 'changes',                label: 'Changes to this policy' },
+  { id: 'contact',                label: 'Contact' },
+];
+---
+
+<Layout
+  fullTitle="Cookie Policy | Heirly"
+  title="Cookie Policy"
+  description="Heirly's Cookie Policy — what cookies we use, why we use them, and how to manage your preferences."
+  ogImage="/og/og-home.png"
+>
+  <!-- ——— Hero ——— -->
+  <section class="cp-hero">
+    <div class="cp-container">
+      <h1 class="cp-hero-title">Cookie Policy</h1>
+      <p class="cp-hero-meta">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <!-- ——— Body ——— -->
+  <div class="cp-body">
+    <div class="cp-layout">
+
+      <!-- TOC sidebar -->
+      <aside class="cp-toc" aria-label="Table of contents">
+        <p class="cp-toc-heading">Contents</p>
+        <nav>
+          <ol class="cp-toc-list">
+            {toc.map((item, i) => (
+              <li>
+                <a href={`#${item.id}`} class="cp-toc-link">
+                  <span class="cp-toc-num">{i + 1}.</span> {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <article class="cp-content">
+
+        <section id="what-are-cookies" class="cp-section">
+          <h2 class="cp-h2">1. What are cookies</h2>
+          <p>
+            Cookies are small text files that websites place on your device when you visit them.
+            They are stored by your browser and sent back to the website on subsequent visits.
+          </p>
+          <p>
+            Cookies help websites do useful things — like remembering your preferences, keeping
+            you logged in, and understanding how people navigate the site so the experience can
+            be improved over time.
+          </p>
+          <p>
+            Some cookies are essential for a website to function at all. Others are optional and
+            are only set with your explicit consent.
+          </p>
+        </section>
+
+        <section id="how-heirly-uses-cookies" class="cp-section">
+          <h2 class="cp-h2">2. How Heirly uses cookies</h2>
+          <p>
+            We use cookies to keep the site working correctly, to understand how it is used,
+            and — with your consent — to show relevant Heirly ads to people who have previously
+            visited our site.
+          </p>
+          <p>
+            We do not sell or share your data with third parties for their own advertising
+            purposes. Any analytics or marketing tools we use are strictly limited to helping
+            us understand and improve Heirly, and to reaching people who may benefit from it.
+          </p>
+          <p>
+            You can review and update your cookie preferences at any time using the
+            <a href="#" id="cp-open-cookie-settings" class="cp-link">Cookie Settings</a> link
+            in the footer of our site.
+          </p>
+        </section>
+
+        <section id="the-cookies-we-use" class="cp-section">
+          <h2 class="cp-h2">3. The cookies we use</h2>
+
+          <h3 class="cp-h3">Necessary <span class="cp-badge cp-badge--necessary">Always active</span></h3>
+          <p class="cp-category-note">
+            These cookies are required for the site to function. They cannot be disabled.
+          </p>
+          <div class="cp-table-wrap">
+            <table class="cp-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Provider</th>
+                  <th>Purpose</th>
+                  <th>Duration</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>heirly_cookie_consent</code></td>
+                  <td>Heirly</td>
+                  <td>Stores your cookie preferences</td>
+                  <td>1 year</td>
+                  <td>Necessary</td>
+                </tr>
+                <tr>
+                  <td><code>supabase-auth-token</code></td>
+                  <td>Supabase</td>
+                  <td>Maintains your login session</td>
+                  <td>Session</td>
+                  <td>Necessary</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="cp-h3">Analytics <span class="cp-badge cp-badge--analytics">Consent required</span></h3>
+          <p class="cp-category-note">
+            These cookies are only set if you have consented to analytics.
+          </p>
+          <div class="cp-table-wrap">
+            <table class="cp-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Provider</th>
+                  <th>Purpose</th>
+                  <th>Duration</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>_ga</code></td>
+                  <td>Google Analytics</td>
+                  <td>Distinguishes unique users</td>
+                  <td>2 years</td>
+                  <td>Analytics</td>
+                </tr>
+                <tr>
+                  <td><code>_ga_G-SYFF96HD06</code></td>
+                  <td>Google Analytics</td>
+                  <td>Maintains session state</td>
+                  <td>2 years</td>
+                  <td>Analytics</td>
+                </tr>
+                <tr>
+                  <td><code>_gid</code></td>
+                  <td>Google Analytics</td>
+                  <td>Distinguishes users across sessions</td>
+                  <td>24 hours</td>
+                  <td>Analytics</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="cp-h3">Marketing <span class="cp-badge cp-badge--marketing">Consent required</span></h3>
+          <p class="cp-category-note">
+            These cookies are only set if you have consented to marketing.
+          </p>
+          <div class="cp-table-wrap">
+            <table class="cp-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Provider</th>
+                  <th>Purpose</th>
+                  <th>Duration</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>_fbp</code></td>
+                  <td>Meta (Facebook)</td>
+                  <td>Identifies browsers for ad delivery and retargeting</td>
+                  <td>3 months</td>
+                  <td>Marketing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="how-to-manage" class="cp-section">
+          <h2 class="cp-h2">4. How to manage your cookies</h2>
+          <p>
+            You have full control over which optional cookies are set on your device.
+          </p>
+          <ul class="cp-list">
+            <li>
+              Use the <a href="#" class="cp-link cp-open-cookie-settings">Cookie Settings</a> link
+              in the footer of our site to review or update your preferences at any time. Your
+              changes take effect immediately.
+            </li>
+            <li>
+              You can also delete or block cookies directly through your browser settings:
+              <ul class="cp-list cp-list--nested">
+                <li>
+                  <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="cp-link">
+                    Google Chrome
+                  </a>
+                </li>
+                <li>
+                  <a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" class="cp-link">
+                    Apple Safari
+                  </a>
+                </li>
+                <li>
+                  <a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noopener noreferrer" class="cp-link">
+                    Mozilla Firefox
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Please note: blocking necessary cookies may prevent parts of the site from
+              working correctly.
+            </li>
+          </ul>
+        </section>
+
+        <section id="changes" class="cp-section">
+          <h2 class="cp-h2">5. Changes to this policy</h2>
+          <p>
+            We may update this policy when we add new tools or services to Heirly. The
+            <em>Last updated</em> date at the top of this page will always reflect the most
+            recent version.
+          </p>
+          <p>
+            If we make significant changes to how we use cookies, we will re-prompt you for
+            consent where required.
+          </p>
+        </section>
+
+        <section id="contact" class="cp-section">
+          <h2 class="cp-h2">6. Contact</h2>
+          <p>
+            If you have questions about how we use cookies, please email us at
+            <a href="mailto:hello@heirly.app" class="cp-link">hello@heirly.app</a>.
+          </p>
+        </section>
+
+      </article>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ——— Hero ——— */
+  .cp-hero {
+    background-color: var(--color-forest);
+    padding: 5rem 0 4rem;
+  }
+
+  .cp-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .cp-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-cream);
+    margin: 0 0 0.625rem;
+  }
+
+  .cp-hero-meta {
+    font-size: 0.9375rem;
+    color: rgba(245, 240, 232, 0.55);
+    margin: 0;
+  }
+
+  /* ——— Layout ——— */
+  .cp-body {
+    background-color: var(--color-cream);
+    padding: 4rem 0 6rem;
+  }
+
+  .cp-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ——— TOC sidebar ——— */
+  .cp-toc {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .cp-toc-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+  }
+
+  .cp-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .cp-toc-link {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-slate);
+    opacity: 0.7;
+    text-decoration: none;
+    line-height: 1.45;
+    transition: opacity 0.15s ease, color 0.15s ease;
+    padding: 0.1rem 0;
+  }
+
+  .cp-toc-link:hover {
+    opacity: 1;
+    color: var(--color-forest);
+  }
+
+  .cp-toc-num {
+    color: var(--color-sage);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ——— Content ——— */
+  .cp-content {
+    max-width: 720px;
+  }
+
+  .cp-section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .cp-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    color: var(--color-forest);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.12);
+  }
+
+  .cp-h3 {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--color-slate);
+    margin: 2rem 0 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+  }
+
+  .cp-content p {
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--color-slate);
+    margin: 0 0 1.125rem;
+  }
+
+  .cp-category-note {
+    font-size: 0.9rem !important;
+    opacity: 0.65;
+    margin-bottom: 0.875rem !important;
+  }
+
+  /* ——— Badges ——— */
+  .cp-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 0.2em 0.55em;
+    vertical-align: middle;
+  }
+
+  .cp-badge--necessary {
+    background-color: rgba(45, 74, 62, 0.1);
+    color: var(--color-forest);
+  }
+
+  .cp-badge--analytics {
+    background-color: rgba(74, 124, 106, 0.12);
+    color: var(--color-sage);
+  }
+
+  .cp-badge--marketing {
+    background-color: rgba(212, 175, 55, 0.15);
+    color: #9A7A1A;
+  }
+
+  /* ——— Table ——— */
+  .cp-table-wrap {
+    overflow-x: auto;
+    margin: 0.75rem 0 1.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 74, 62, 0.12);
+  }
+
+  .cp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    background-color: #fff;
+  }
+
+  .cp-table th {
+    background-color: rgba(45, 74, 62, 0.05);
+    color: var(--color-forest);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.12);
+    white-space: nowrap;
+  }
+
+  .cp-table td {
+    padding: 0.75rem 1rem;
+    color: var(--color-slate);
+    border-bottom: 1px solid rgba(45, 74, 62, 0.07);
+    line-height: 1.5;
+    vertical-align: top;
+  }
+
+  .cp-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cp-table code {
+    font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+    font-size: 0.8125rem;
+    background-color: rgba(45, 74, 62, 0.07);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ——— Lists ——— */
+  .cp-list {
+    margin: 0 0 1.125rem 0;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .cp-list li {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-slate);
+  }
+
+  .cp-list--nested {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .cp-link {
+    color: var(--color-forest);
+    font-weight: 500;
+    text-underline-offset: 2px;
+  }
+
+  .cp-link:hover {
+    opacity: 0.72;
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 820px) {
+    .cp-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .cp-toc {
+      position: static;
+      border: 1px solid rgba(45, 74, 62, 0.12);
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .cp-toc-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.375rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cp-body { padding: 2.5rem 0 4rem; }
+    .cp-hero { padding: 3.5rem 0 2.75rem; }
+  }
+</style>
+
+<script>
+  // "Cookie Settings" links within the page re-open the consent banner
+  document.querySelectorAll('#cp-open-cookie-settings, .cp-open-cookie-settings').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('cookie-settings-link')?.click();
+    });
+  });
+</script>
