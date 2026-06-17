@@ -1,0 +1,697 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'June 2026';
+
+const toc = [
+  { id: 'who-we-are',              label: 'Who we are' },
+  { id: 'what-data-we-collect',    label: 'What data we collect' },
+  { id: 'lawful-basis',            label: 'Lawful basis for processing' },
+  { id: 'beneficiary-data',        label: 'Beneficiary and deceased data' },
+  { id: 'how-we-use-data',         label: 'How we use your data' },
+  { id: 'third-party-processors',  label: 'Third-party processors' },
+  { id: 'international-transfers', label: 'International transfers' },
+  { id: 'data-retention',          label: 'Data retention' },
+  { id: 'your-rights',             label: 'Your rights' },
+  { id: 'cookies',                 label: 'Cookies' },
+  { id: 'children',                label: 'Children' },
+  { id: 'automated-decisions',     label: 'Automated decision-making' },
+  { id: 'data-sales',              label: 'Sale of data' },
+  { id: 'changes',                 label: 'Changes to this policy' },
+  { id: 'complaints',              label: 'Complaints' },
+  { id: 'contact',                 label: 'Contact us' },
+];
+---
+
+<Layout
+  fullTitle="Privacy Policy | Heirly"
+  title="Privacy Policy"
+  description="How Heirly collects, uses, and protects your personal information. Compliant with UK GDPR, the Australian Privacy Act 1988, and the New Zealand Privacy Act 2020."
+  ogImage="/og/og-home.png"
+>
+  <!-- ——— Hero ——— -->
+  <section class="lp-hero">
+    <div class="lp-container">
+      <h1 class="lp-hero-title">Privacy Policy</h1>
+      <p class="lp-hero-meta">Last updated: {lastUpdated}</p>
+      <p class="lp-hero-sub">
+        This policy explains how The P80 Project Limited (trading as Heirly) collects,
+        uses, stores, and protects your personal information. It applies to everyone who
+        uses the Heirly website (heirly.app) and application (app.heirly.app).
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— Body ——— -->
+  <div class="lp-body">
+    <div class="lp-layout">
+
+      <!-- TOC sidebar -->
+      <aside class="lp-toc" aria-label="Table of contents">
+        <p class="lp-toc-heading">Contents</p>
+        <nav>
+          <ol class="lp-toc-list">
+            {toc.map((item, i) => (
+              <li>
+                <a href={`#${item.id}`} class="lp-toc-link">
+                  <span class="lp-toc-num">{i + 1}.</span> {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <article class="lp-content">
+
+        <section id="who-we-are" class="lp-section">
+          <h2 class="lp-h2">1. Who we are</h2>
+          <p>
+            <strong>The P80 Project Limited</strong> is a company registered in New Zealand,
+            trading as <strong>Heirly</strong>. We operate the website at heirly.app and the
+            application at app.heirly.app.
+          </p>
+          <p>
+            For the purposes of UK GDPR and the UK Data Protection Act 2018, Heirly is the
+            data controller in respect of personal data collected through our platform.
+            For Australian and New Zealand users, Heirly is the agency/organisation responsible
+            for the personal information described in this policy.
+          </p>
+          <p>
+            You can contact us at any time at
+            <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a>.
+          </p>
+        </section>
+
+        <section id="what-data-we-collect" class="lp-section">
+          <h2 class="lp-h2">2. What data we collect</h2>
+          <p>We collect the following categories of personal information:</p>
+
+          <h3 class="lp-h3">Account information</h3>
+          <ul class="lp-list">
+            <li>Name and email address (collected when you register or are invited to an estate)</li>
+          </ul>
+
+          <h3 class="lp-h3">Estate and item data</h3>
+          <ul class="lp-list">
+            <li>The name of the deceased person associated with the estate</li>
+            <li>Descriptions, photographs, and estimated or confirmed values of estate items</li>
+            <li>Financial share entitlements and allocation decisions recorded during the estate process</li>
+            <li>Photos uploaded by executors for item cataloguing purposes</li>
+            <li>AI-generated valuation suggestions derived from those photos and descriptions</li>
+          </ul>
+
+          <h3 class="lp-h3">Beneficiary information</h3>
+          <ul class="lp-list">
+            <li>
+              Names and email addresses of beneficiaries entered by the executor before those
+              individuals have themselves logged in or provided consent directly to Heirly
+            </li>
+          </ul>
+
+          <h3 class="lp-h3">Payment information</h3>
+          <ul class="lp-list">
+            <li>
+              Payment transactions are handled by Stripe. Card numbers and payment credentials
+              never pass through or are stored on Heirly's servers. We retain transaction
+              references and subscription status only.
+            </li>
+          </ul>
+
+          <h3 class="lp-h3">Usage and consent data</h3>
+          <ul class="lp-list">
+            <li>Cookie consent records, including which categories of cookies you have accepted or declined</li>
+            <li>Where you have consented, analytics data collected via Google Analytics 4</li>
+            <li>Where you have consented, advertising interaction data collected via the Meta Pixel</li>
+          </ul>
+
+          <h3 class="lp-h3">Technical data</h3>
+          <ul class="lp-list">
+            <li>IP address (used for security and fraud prevention, retained for a limited period)</li>
+            <li>Browser type and approximate geographic location derived from IP (where analytics consent is given)</li>
+          </ul>
+        </section>
+
+        <section id="lawful-basis" class="lp-section">
+          <h2 class="lp-h2">3. Lawful basis for processing</h2>
+          <p>We process your personal data under the following lawful bases:</p>
+          <div class="lp-callout">
+            <p>
+              <strong>Contract performance:</strong> When you create or participate in an estate
+              as an executor, processing your name, email, and estate data is necessary to
+              provide the Heirly service you have requested.
+            </p>
+          </div>
+          <div class="lp-callout">
+            <p>
+              <strong>Legitimate interests:</strong> We process certain technical data for
+              platform security, fraud prevention, abuse detection, and service improvement.
+              Our legitimate interests do not override your fundamental rights and freedoms.
+            </p>
+          </div>
+          <div class="lp-callout">
+            <p>
+              <strong>Consent:</strong> We process data for marketing communications (email),
+              analytics cookies, and advertising cookies only where you have given clear,
+              specific consent. You may withdraw consent at any time without affecting the
+              lawfulness of processing that occurred before withdrawal.
+            </p>
+          </div>
+          <p>
+            Under Australian and New Zealand privacy law, we collect, hold, and use personal
+            information that is reasonably necessary for one or more of our functions or
+            activities in operating the Heirly platform.
+          </p>
+        </section>
+
+        <section id="beneficiary-data" class="lp-section">
+          <h2 class="lp-h2">4. Beneficiary and deceased data</h2>
+
+          <h3 class="lp-h3">Beneficiary data entered by the executor</h3>
+          <p>
+            When an executor adds a beneficiary to an estate — providing their name, email
+            address, and relationship to the estate — the executor acts as the data controller
+            in respect of that personal information. Heirly acts as a data processor on the
+            executor's instructions in this context.
+          </p>
+          <p>
+            Beneficiaries are notified by email as soon as they are added to an estate. That
+            notification explains who has added them, what Heirly is, and what information
+            has been entered. Beneficiaries must actively accept their invitation before they
+            can participate in the estate. They may contact us at any time to exercise their
+            rights over their personal data.
+          </p>
+
+          <h3 class="lp-h3">Data relating to deceased persons</h3>
+          <p>
+            The name of the deceased and details of their belongings form part of the estate
+            record. Under UK GDPR, the New Zealand Privacy Act 2020, and the Australian
+            Privacy Act 1988, data protection legislation applies to <em>living</em> individuals.
+            Personal data of deceased persons generally falls outside the statutory definitions
+            that confer individual rights.
+          </p>
+          <p>
+            Notwithstanding this, Heirly treats information about deceased persons with the
+            same level of care, security, and discretion as we apply to the data of living
+            individuals. This reflects our values as a grief-aware platform, not merely our
+            legal minimum obligations.
+          </p>
+        </section>
+
+        <section id="how-we-use-data" class="lp-section">
+          <h2 class="lp-h2">5. How we use your data</h2>
+          <p>We use the personal information we collect to:</p>
+          <ul class="lp-list">
+            <li>Create and manage your account and any estates you are part of</li>
+            <li>Facilitate the estate catalogue, allocation rounds, and settlement process</li>
+            <li>Send you transactional emails — invitations, status updates, and reports related to estates you are part of</li>
+            <li>Process payments for paid estate features</li>
+            <li>Provide AI-assisted item valuation suggestions</li>
+            <li>Ensure platform security and prevent fraud or abuse</li>
+            <li>Comply with applicable legal obligations</li>
+            <li>Send marketing communications to users who have opted in (you can unsubscribe at any time)</li>
+            <li>Analyse how the platform is used in aggregate, where analytics consent has been given, to improve the product</li>
+          </ul>
+        </section>
+
+        <section id="third-party-processors" class="lp-section">
+          <h2 class="lp-h2">6. Third-party processors</h2>
+          <p>
+            We use the following third-party services to operate Heirly. Each processes
+            personal data on our behalf under data processing agreements or equivalent
+            contractual safeguards:
+          </p>
+
+          <div class="lp-processor-list">
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Supabase</h3>
+              <p>Database, authentication, and file storage. Estate data, user accounts, and uploaded photos are stored in Supabase-managed infrastructure. Data may be hosted outside your home country; appropriate contractual safeguards are in place.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Google Gemini</h3>
+              <p>AI-powered item valuation. When you upload a photo of an estate item, that image and its description may be sent to Google Gemini to generate a suggested title and estimated value. Photos and descriptions are sent for processing only — they are not used to train Google's models under our API agreement.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Resend</h3>
+              <p>Transactional email delivery. Name and email address are shared with Resend in order to send estate invitations, status updates, and other service emails.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Stripe</h3>
+              <p>Payment processing. Stripe handles all card transactions. Payment credentials never pass through our servers. Stripe may retain transaction data in accordance with its own privacy policy and applicable financial regulations.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Google Analytics 4</h3>
+              <p>Website and app analytics. Activated only where you have given cookie consent for analytics. Collects anonymised usage data to help us understand how Heirly is used and improve it over time.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Meta (Facebook) Pixel</h3>
+              <p>Advertising and audience matching. Activated only where you have given cookie consent for marketing. Used to show relevant Heirly ads to people who have previously visited our site. No data is shared with Meta without your explicit consent.</p>
+            </div>
+            <div class="lp-processor">
+              <h3 class="lp-processor-name">Brevo</h3>
+              <p>Email marketing. Used only for users who have opted in to receive marketing communications from Heirly. Name and email address are shared with Brevo for this purpose. You may unsubscribe at any time via the link in any marketing email.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="international-transfers" class="lp-section">
+          <h2 class="lp-h2">7. International data transfers</h2>
+          <p>
+            Heirly is incorporated in New Zealand and our third-party processors — including
+            Supabase, Google, Stripe, and Resend — may store or process data in the United
+            States and other countries outside the UK, European Economic Area, Australia, or
+            New Zealand.
+          </p>
+          <p>
+            Where personal data is transferred internationally, we ensure appropriate safeguards
+            are in place, such as:
+          </p>
+          <ul class="lp-list">
+            <li>Standard Contractual Clauses approved by the UK Information Commissioner or European Commission (for UK/EEA data)</li>
+            <li>Reliance on processors covered by adequacy decisions or equivalent frameworks recognised under NZ and Australian law</li>
+            <li>Data processing agreements that require processors to maintain equivalent protections to those required in the originating jurisdiction</li>
+          </ul>
+          <p>
+            By using Heirly, you acknowledge that your data may be processed in countries with
+            different data protection standards to your own. We take reasonable steps to ensure
+            your information remains protected in those circumstances.
+          </p>
+        </section>
+
+        <section id="data-retention" class="lp-section">
+          <h2 class="lp-h2">8. Data retention</h2>
+          <ul class="lp-list">
+            <li>
+              <strong>Active estates:</strong> Estate data, item records, and associated personal
+              information are retained for as long as the estate is active.
+            </li>
+            <li>
+              <strong>Completed estates:</strong> Once an estate reaches "Complete" status and
+              no estate member has logged in for 24 consecutive months, the estate record and
+              all associated personal data will be automatically deleted or irreversibly
+              anonymised.
+            </li>
+            <li>
+              <strong>Early deletion requests:</strong> You may request deletion of your personal
+              data at any time by contacting
+              <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a>. We will
+              action deletion requests within 30 days, subject to any overriding legal obligations
+              to retain certain records (e.g. financial transaction records).
+            </li>
+            <li>
+              <strong>Inactive accounts:</strong> Account data for registered users who have
+              never activated an estate is retained for 12 months of inactivity, after which
+              it is deleted.
+            </li>
+            <li>
+              <strong>Cookie consent records:</strong> Retained for as long as necessary to
+              demonstrate compliance, typically 13 months from the date of consent.
+            </li>
+          </ul>
+        </section>
+
+        <section id="your-rights" class="lp-section">
+          <h2 class="lp-h2">9. Your rights</h2>
+          <p>
+            Depending on where you are located, you have the following rights in relation to
+            your personal data. These rights apply under UK GDPR and the UK Data Protection
+            Act 2018, the Australian Privacy Act 1988, and the New Zealand Privacy Act 2020,
+            with some variation in scope and mechanism between jurisdictions.
+          </p>
+          <ul class="lp-list">
+            <li>
+              <strong>Right to access:</strong> You may request a copy of the personal data we
+              hold about you.
+            </li>
+            <li>
+              <strong>Right to rectification:</strong> You may ask us to correct inaccurate or
+              incomplete personal data.
+            </li>
+            <li>
+              <strong>Right to erasure:</strong> You may ask us to delete your personal data in
+              certain circumstances. This right may be limited where we are required by law to
+              retain certain records.
+            </li>
+            <li>
+              <strong>Right to data portability:</strong> Where processing is based on consent
+              or contract and is carried out by automated means, you may request your data in a
+              portable, machine-readable format.
+            </li>
+            <li>
+              <strong>Right to object:</strong> You may object to processing based on our
+              legitimate interests. We will cease that processing unless we can demonstrate
+              compelling legitimate grounds that override your interests.
+            </li>
+            <li>
+              <strong>Right to withdraw consent:</strong> Where processing is based on your
+              consent, you may withdraw that consent at any time. Withdrawal does not affect the
+              lawfulness of processing that occurred before the withdrawal.
+            </li>
+          </ul>
+          <p>
+            To exercise any of these rights, contact us at
+            <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a>. We will
+            respond within one month (UK/EEA), 30 days (Australia), or as soon as reasonably
+            practicable (New Zealand).
+          </p>
+        </section>
+
+        <section id="cookies" class="lp-section">
+          <h2 class="lp-h2">10. Cookies</h2>
+          <p>
+            We use cookies and similar technologies on heirly.app. Cookies used for analytics
+            and marketing are only activated with your consent, which you can manage at any
+            time using the Cookie Settings link in the footer of our site.
+          </p>
+          <p>
+            For full details of the cookies we use, their purpose, and their duration, see our
+            <a href="/cookie-policy" class="lp-link">Cookie Policy</a>.
+          </p>
+        </section>
+
+        <section id="children" class="lp-section">
+          <h2 class="lp-h2">11. Children</h2>
+          <p>
+            Heirly is intended for use by adults aged 18 and over. We do not knowingly collect
+            personal information from anyone under 18. If you believe a person under 18 has
+            provided us with their personal data, please contact us at
+            <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a> and we
+            will delete it promptly.
+          </p>
+        </section>
+
+        <section id="automated-decisions" class="lp-section">
+          <h2 class="lp-h2">12. Automated decision-making</h2>
+          <p>
+            Heirly does not make any automated decisions that produce legal or similarly
+            significant effects in relation to you.
+          </p>
+          <p>
+            AI-generated item valuations are produced algorithmically but are provided as
+            suggestions only. They do not constitute professional appraisal, and no allocation
+            or settlement decision is made automatically — every decision is reviewed and
+            confirmed by the human executor responsible for the estate.
+          </p>
+        </section>
+
+        <section id="data-sales" class="lp-section">
+          <h2 class="lp-h2">13. Sale of data</h2>
+          <p>
+            We do not sell your personal data to third parties. We do not share your personal
+            data with third parties for their own independent marketing or advertising purposes.
+            Third-party tools we use (such as Google Analytics and the Meta Pixel) operate
+            strictly under our instructions and only where you have given consent.
+          </p>
+        </section>
+
+        <section id="changes" class="lp-section">
+          <h2 class="lp-h2">14. Changes to this policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time as we add new features, change
+            how we use data, or in response to changes in applicable law. Where changes are
+            material, we will notify registered users by email before the changes take effect.
+            The <em>Last updated</em> date at the top of this page will always reflect the
+            current version.
+          </p>
+        </section>
+
+        <section id="complaints" class="lp-section">
+          <h2 class="lp-h2">15. Complaints</h2>
+          <p>
+            If you have a concern about how we handle your personal data, please contact us
+            first at <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a>.
+            We take all complaints seriously and will respond within a reasonable timeframe.
+          </p>
+          <p>If you are not satisfied with our response, you may escalate to the relevant regulator:</p>
+          <ul class="lp-list">
+            <li>
+              <strong>UK users:</strong> Information Commissioner's Office (ICO) —
+              <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" class="lp-link">ico.org.uk</a>
+            </li>
+            <li>
+              <strong>Australian users:</strong> Office of the Australian Information Commissioner (OAIC) —
+              <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer" class="lp-link">oaic.gov.au</a>
+            </li>
+            <li>
+              <strong>New Zealand users:</strong> Office of the Privacy Commissioner —
+              <a href="https://www.privacy.org.nz" target="_blank" rel="noopener noreferrer" class="lp-link">privacy.org.nz</a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact" class="lp-section">
+          <h2 class="lp-h2">16. Contact us</h2>
+          <p>
+            For any questions about this Privacy Policy or how we handle your personal data,
+            please contact:
+          </p>
+          <p>
+            <strong>The P80 Project Limited</strong> (trading as Heirly)<br />
+            Email: <a href="mailto:hello@heirly.app" class="lp-link">hello@heirly.app</a><br />
+            Website: <a href="https://heirly.app" class="lp-link">heirly.app</a>
+          </p>
+        </section>
+
+        <p class="lp-back-top"><a href="#top" class="lp-link">Back to top ↑</a></p>
+
+      </article>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ——— Hero ——— */
+  .lp-hero {
+    background-color: var(--color-forest);
+    padding: 5rem 0 4rem;
+  }
+
+  .lp-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .lp-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-cream);
+    margin: 0 0 0.5rem;
+  }
+
+  .lp-hero-meta {
+    font-size: 0.9375rem;
+    color: rgba(245, 240, 232, 0.55);
+    margin: 0 0 1rem;
+  }
+
+  .lp-hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.75);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ——— Layout ——— */
+  .lp-body {
+    background-color: var(--color-cream);
+    padding: 4rem 0 6rem;
+  }
+
+  .lp-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ——— TOC sidebar ——— */
+  .lp-toc {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .lp-toc-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+  }
+
+  .lp-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .lp-toc-link {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-slate);
+    opacity: 0.65;
+    text-decoration: none;
+    line-height: 1.45;
+    transition: opacity 0.15s ease, color 0.15s ease;
+    padding: 0.1rem 0;
+  }
+
+  .lp-toc-link:hover {
+    opacity: 1;
+    color: var(--color-forest);
+  }
+
+  .lp-toc-num {
+    color: var(--color-sage);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ——— Content ——— */
+  .lp-content {
+    max-width: 720px;
+  }
+
+  .lp-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .lp-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.12);
+  }
+
+  .lp-h3 {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-slate);
+    margin: 1.25rem 0 0.375rem;
+  }
+
+  .lp-content p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 1rem;
+  }
+
+  /* ——— Callout boxes ——— */
+  .lp-callout {
+    background-color: rgba(45, 74, 62, 0.05);
+    border-left: 3px solid var(--color-sage);
+    border-radius: 0 6px 6px 0;
+    padding: 0.875rem 1.125rem;
+    margin: 0 0 0.875rem;
+  }
+
+  .lp-callout p {
+    margin: 0 !important;
+    font-size: 0.9375rem;
+  }
+
+  /* ——— Processor list ——— */
+  .lp-processor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.75rem;
+  }
+
+  .lp-processor {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.1);
+  }
+
+  .lp-processor:last-child {
+    border-bottom: none;
+  }
+
+  .lp-processor-name {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-forest);
+    margin: 0 0 0.3rem;
+  }
+
+  .lp-processor p {
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+    opacity: 0.8;
+  }
+
+  /* ——— Lists ——— */
+  .lp-list {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .lp-list li {
+    font-size: 0.9375rem;
+    line-height: 1.72;
+    color: var(--color-slate);
+  }
+
+  /* ——— Links ——— */
+  .lp-link {
+    color: var(--color-forest);
+    font-weight: 500;
+    text-underline-offset: 2px;
+  }
+
+  .lp-link:hover {
+    opacity: 0.72;
+  }
+
+  /* ——— Back to top ——— */
+  .lp-back-top {
+    margin-top: 3rem;
+    font-size: 0.875rem;
+    opacity: 0.6;
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 820px) {
+    .lp-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .lp-toc {
+      position: static;
+      border: 1px solid rgba(45, 74, 62, 0.12);
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .lp-toc-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.375rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lp-body  { padding: 2.5rem 0 4rem; }
+    .lp-hero  { padding: 3.5rem 0 2.75rem; }
+  }
+</style>

@@ -1,0 +1,523 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lastUpdated = 'June 2026';
+
+const toc = [
+  { id: 'what-heirly-is',         label: 'What Heirly is' },
+  { id: 'eligibility',            label: 'Eligibility' },
+  { id: 'accounts',               label: 'Accounts and responsibilities' },
+  { id: 'pricing',                label: 'Free and paid tiers' },
+  { id: 'acceptable-use',         label: 'Acceptable use' },
+  { id: 'ai-valuations',          label: 'AI-generated valuations' },
+  { id: 'beneficiary-data',       label: 'Data and beneficiary information' },
+  { id: 'intellectual-property',  label: 'Intellectual property' },
+  { id: 'liability',              label: 'Limitation of liability' },
+  { id: 'termination',            label: 'Termination' },
+  { id: 'governing-law',          label: 'Governing law' },
+  { id: 'changes',                label: 'Changes to these terms' },
+  { id: 'contact',                label: 'Contact' },
+];
+---
+
+<Layout
+  fullTitle="Terms of Service | Heirly"
+  title="Terms of Service"
+  description="Heirly Terms of Service — the rules governing use of the Heirly platform. Operated by The P80 Project Limited, registered in New Zealand."
+  ogImage="/og/og-home.png"
+>
+  <!-- ——— Hero ——— -->
+  <section class="ts-hero">
+    <div class="ts-container">
+      <h1 class="ts-hero-title">Terms of Service</h1>
+      <p class="ts-hero-meta">Last updated: {lastUpdated}</p>
+      <p class="ts-hero-sub">
+        These terms govern your use of the Heirly platform operated by The P80 Project
+        Limited, a company registered in New Zealand, trading as Heirly. By creating an
+        account or participating in an estate on Heirly, you agree to these terms.
+      </p>
+    </div>
+  </section>
+
+  <!-- ——— Body ——— -->
+  <div class="ts-body">
+    <div class="ts-layout">
+
+      <!-- TOC sidebar -->
+      <aside class="ts-toc" aria-label="Table of contents">
+        <p class="ts-toc-heading">Contents</p>
+        <nav>
+          <ol class="ts-toc-list">
+            {toc.map((item, i) => (
+              <li>
+                <a href={`#${item.id}`} class="ts-toc-link">
+                  <span class="ts-toc-num">{i + 1}.</span> {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <article class="ts-content">
+
+        <section id="what-heirly-is" class="ts-section">
+          <h2 class="ts-h2">1. What Heirly is</h2>
+          <p>
+            Heirly is a software platform that helps executors catalogue estate belongings,
+            invite beneficiaries to express preferences, and facilitate a transparent allocation
+            process. It is designed to make a difficult task more structured and less
+            contentious for grieving families.
+          </p>
+          <div class="ts-notice">
+            <p>
+              <strong>Heirly is not a law firm and does not provide legal advice.</strong> Heirly
+              does not provide probate services, act as an executor, or offer financial advice.
+              The executor of the estate remains solely and legally responsible for the proper
+              administration of the estate, for compliance with applicable probate or
+              administration law, and for any decisions made during the estate process.
+            </p>
+          </div>
+          <p>
+            If you need legal advice about estate administration, you should consult a qualified
+            solicitor, barrister, or other legal professional in your jurisdiction.
+          </p>
+        </section>
+
+        <section id="eligibility" class="ts-section">
+          <h2 class="ts-h2">2. Eligibility</h2>
+          <p>
+            You must be 18 years of age or older to create an estate, register an account, or
+            participate in an estate as a beneficiary on Heirly. By using Heirly, you represent
+            and warrant that you meet this requirement.
+          </p>
+        </section>
+
+        <section id="accounts" class="ts-section">
+          <h2 class="ts-h2">3. Accounts and responsibilities</h2>
+          <p>
+            The executor who creates an estate on Heirly is responsible for:
+          </p>
+          <ul class="ts-list">
+            <li>
+              <strong>Accuracy of information:</strong> The executor is responsible for the
+              accuracy of all information entered into the estate, including item descriptions,
+              estimated or confirmed values, and beneficiary details.
+            </li>
+            <li>
+              <strong>Legal authority to act:</strong> The executor is responsible for ensuring
+              they hold a valid legal basis — such as a grant of probate, letters of
+              administration, or a jurisdiction-equivalent authority — to act as executor and
+              to manage the distribution of estate assets before using Heirly for that purpose.
+            </li>
+            <li>
+              <strong>Beneficiary capacity:</strong> The executor is responsible for ensuring
+              that each beneficiary they invite has the legal capacity to participate in the
+              estate process.
+            </li>
+            <li>
+              <strong>Account security:</strong> You are responsible for maintaining the
+              confidentiality of any access credentials and for all activity that occurs through
+              your account or magic link.
+            </li>
+          </ul>
+        </section>
+
+        <section id="pricing" class="ts-section">
+          <h2 class="ts-h2">4. Free and paid tiers</h2>
+
+          <h3 class="ts-h3">Free tier</h3>
+          <p>
+            The free tier allows the executor to catalogue up to 10 estate items and run
+            sentimental allocation rounds at no cost. No credit card is required.
+          </p>
+
+          <h3 class="ts-h3">Full Estate (paid tier)</h3>
+          <p>
+            The paid tier unlocks unlimited items, financial allocation rounds, the settlement
+            calculator, full PDF report export, and audit log export. The fee is a one-time
+            payment per estate — there are no subscriptions, monthly charges, or renewals.
+            Current pricing is shown at
+            <a href="/pricing" class="ts-link">heirly.app/pricing</a> and may be charged in
+            NZD, GBP, or AUD depending on your location.
+          </p>
+
+          <h3 class="ts-h3">Refund policy</h3>
+          <p>
+            The one-time fee is non-refundable once an estate has been activated on the paid
+            tier, except where required by applicable consumer protection law (including the
+            New Zealand Consumer Guarantees Act, Australian Consumer Law, and UK consumer
+            legislation) or at Heirly's reasonable discretion in exceptional circumstances.
+          </p>
+        </section>
+
+        <section id="acceptable-use" class="ts-section">
+          <h2 class="ts-h2">5. Acceptable use</h2>
+          <p>You agree not to use Heirly to:</p>
+          <ul class="ts-list">
+            <li>Create a fraudulent or fictitious estate, or impersonate an executor without lawful authority to act</li>
+            <li>Circumvent legal or fiduciary obligations, or use the platform to facilitate any unlawful activity</li>
+            <li>Upload content that is illegal, infringes third-party intellectual property rights, is defamatory, or is otherwise harmful</li>
+            <li>Attempt to gain access to another user's account or another estate without authorisation</li>
+            <li>Interfere with or disrupt the security or integrity of the platform or its infrastructure</li>
+            <li>Use the platform for any purpose other than the legitimate administration of a real estate</li>
+          </ul>
+          <p>
+            Heirly reserves the right to suspend or terminate access immediately for
+            violations of this section.
+          </p>
+        </section>
+
+        <section id="ai-valuations" class="ts-section">
+          <h2 class="ts-h2">6. AI-generated valuations</h2>
+          <p>
+            Heirly uses AI to suggest titles and estimated values for estate items based on
+            photographs and descriptions you upload. These suggestions are provided as
+            guidance only.
+          </p>
+          <div class="ts-notice">
+            <p>
+              AI-generated valuations do not constitute professional appraisal, valuation, or
+              financial advice. Heirly makes no warranty as to the accuracy, completeness, or
+              fitness for purpose of any AI-estimated value.
+            </p>
+          </div>
+          <p>
+            For high-value items, disputed items, or any item where accurate valuation
+            materially affects the estate distribution, users are solely responsible for
+            obtaining a professional independent appraisal. Reliance on AI-generated
+            estimates in place of professional valuation is at the executor's own risk.
+          </p>
+        </section>
+
+        <section id="beneficiary-data" class="ts-section">
+          <h2 class="ts-h2">7. Data and beneficiary information</h2>
+          <p>
+            By adding a beneficiary to an estate, the executor confirms that they have an
+            appropriate basis to provide that person's name, email address, and relevant estate
+            information to Heirly for the purpose of estate administration.
+          </p>
+          <p>
+            Beneficiaries receive an email notification when they are added to an estate.
+            They must actively accept their invitation before they can view or participate in
+            the estate. Executors should not add individuals as beneficiaries without having
+            an appropriate reason to do so.
+          </p>
+          <p>
+            For full details of how personal data is collected and used, please see our
+            <a href="/privacy-policy" class="ts-link">Privacy Policy</a>.
+          </p>
+        </section>
+
+        <section id="intellectual-property" class="ts-section">
+          <h2 class="ts-h2">8. Intellectual property</h2>
+          <p>
+            Heirly and The P80 Project Limited retain all rights to the platform, software,
+            design, branding, and all content produced by Heirly. Nothing in these terms
+            grants you any licence to use Heirly's intellectual property other than as
+            necessary to use the platform for its intended purpose.
+          </p>
+          <p>
+            You retain full ownership of the estate data, photographs, and other content you
+            upload to Heirly. By uploading content, you grant Heirly a limited, non-exclusive
+            licence to store and process that content solely for the purpose of providing the
+            service to you.
+          </p>
+        </section>
+
+        <section id="liability" class="ts-section">
+          <h2 class="ts-h2">9. Limitation of liability</h2>
+          <p>
+            Heirly is provided "as is" and "as available" without warranties of any kind,
+            express or implied, except as required by applicable consumer law.
+          </p>
+          <p>
+            To the maximum extent permitted by applicable law, Heirly and The P80 Project
+            Limited are not liable for:
+          </p>
+          <ul class="ts-list">
+            <li>Disputes between family members or beneficiaries arising from or during the estate process</li>
+            <li>The outcome of any estate allocation or settlement decision made using the platform</li>
+            <li>Loss or damage arising from reliance on AI-generated item valuations</li>
+            <li>Any indirect, consequential, special, or incidental loss or damage</li>
+          </ul>
+          <div class="ts-notice">
+            <p>
+              Nothing in these terms excludes or limits any liability that cannot lawfully be
+              excluded or limited under the New Zealand Consumer Guarantees Act, the Australian
+              Consumer Law, or UK consumer protection legislation. Your statutory rights
+              are not affected.
+            </p>
+          </div>
+        </section>
+
+        <section id="termination" class="ts-section">
+          <h2 class="ts-h2">10. Termination</h2>
+          <p>
+            Heirly may suspend or terminate your access to the platform at any time if you
+            breach these terms, engage in fraudulent activity, or use the platform in a manner
+            that causes harm to others or to Heirly. We will give reasonable notice where
+            possible, except where immediate action is necessary.
+          </p>
+          <p>
+            You may close your account and request deletion of your personal data at any time
+            by contacting us at
+            <a href="mailto:hello@heirly.app" class="ts-link">hello@heirly.app</a>.
+            Closing your account does not entitle you to a refund of any paid estate fees.
+          </p>
+        </section>
+
+        <section id="governing-law" class="ts-section">
+          <h2 class="ts-h2">11. Governing law</h2>
+          <p>
+            These terms are governed by and construed in accordance with the laws of New
+            Zealand. Any disputes arising under or in connection with these terms will be
+            subject to the non-exclusive jurisdiction of the New Zealand courts.
+          </p>
+          <p>
+            Nothing in these terms is intended to, and nothing does, exclude or limit any
+            rights you have under the laws of your own jurisdiction that cannot lawfully be
+            excluded, including rights under the Australian Consumer Law (Schedule 2 of the
+            Competition and Consumer Act 2010), UK consumer protection legislation, or the
+            New Zealand Consumer Guarantees Act 1993.
+          </p>
+        </section>
+
+        <section id="changes" class="ts-section">
+          <h2 class="ts-h2">12. Changes to these terms</h2>
+          <p>
+            We may update these Terms of Service from time to time. Where changes are
+            material, we will notify registered users by email at least <strong>30 days</strong>
+            before the changes take effect. The updated version will be posted at
+            heirly.app/terms with the revised date shown at the top.
+          </p>
+          <p>
+            Continued use of Heirly after the effective date of updated terms constitutes
+            acceptance of those terms.
+          </p>
+        </section>
+
+        <section id="contact" class="ts-section">
+          <h2 class="ts-h2">13. Contact</h2>
+          <p>
+            For questions about these terms, please contact:
+          </p>
+          <p>
+            <strong>The P80 Project Limited</strong> (trading as Heirly)<br />
+            Email: <a href="mailto:hello@heirly.app" class="ts-link">hello@heirly.app</a><br />
+            Website: <a href="https://heirly.app" class="ts-link">heirly.app</a>
+          </p>
+        </section>
+
+        <p class="ts-back-top"><a href="#top" class="ts-link">Back to top ↑</a></p>
+
+      </article>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ——— Hero ——— */
+  .ts-hero {
+    background-color: var(--color-forest);
+    padding: 5rem 0 4rem;
+  }
+
+  .ts-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .ts-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-cream);
+    margin: 0 0 0.5rem;
+  }
+
+  .ts-hero-meta {
+    font-size: 0.9375rem;
+    color: rgba(245, 240, 232, 0.55);
+    margin: 0 0 1rem;
+  }
+
+  .ts-hero-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.75);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ——— Layout ——— */
+  .ts-body {
+    background-color: var(--color-cream);
+    padding: 4rem 0 6rem;
+  }
+
+  .ts-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ——— TOC sidebar ——— */
+  .ts-toc {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .ts-toc-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+  }
+
+  .ts-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .ts-toc-link {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-slate);
+    opacity: 0.65;
+    text-decoration: none;
+    line-height: 1.45;
+    transition: opacity 0.15s ease, color 0.15s ease;
+    padding: 0.1rem 0;
+  }
+
+  .ts-toc-link:hover {
+    opacity: 1;
+    color: var(--color-forest);
+  }
+
+  .ts-toc-num {
+    color: var(--color-sage);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ——— Content ——— */
+  .ts-content {
+    max-width: 720px;
+  }
+
+  .ts-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .ts-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(45, 74, 62, 0.12);
+  }
+
+  .ts-h3 {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-slate);
+    margin: 1.25rem 0 0.375rem;
+  }
+
+  .ts-content p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-slate);
+    margin: 0 0 1rem;
+  }
+
+  /* ——— Notice boxes ——— */
+  .ts-notice {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 0 6px 6px 0;
+    padding: 0.875rem 1.125rem;
+    margin: 0 0 1rem;
+  }
+
+  .ts-notice p {
+    margin: 0 !important;
+    font-size: 0.9375rem;
+  }
+
+  /* ——— Lists ——— */
+  .ts-list {
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ts-list li {
+    font-size: 0.9375rem;
+    line-height: 1.72;
+    color: var(--color-slate);
+  }
+
+  /* ——— Links ——— */
+  .ts-link {
+    color: var(--color-forest);
+    font-weight: 500;
+    text-underline-offset: 2px;
+  }
+
+  .ts-link:hover {
+    opacity: 0.72;
+  }
+
+  /* ——— Back to top ——— */
+  .ts-back-top {
+    margin-top: 3rem;
+    font-size: 0.875rem;
+    opacity: 0.6;
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 820px) {
+    .ts-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .ts-toc {
+      position: static;
+      border: 1px solid rgba(45, 74, 62, 0.12);
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .ts-toc-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.375rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ts-body  { padding: 2.5rem 0 4rem; }
+    .ts-hero  { padding: 3.5rem 0 2.75rem; }
+  }
+</style>
