@@ -1,20 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import iconOpenLedger from '../assets/icons/icon-open-ledger.svg?raw';
+import iconMeaningfulAddition from '../assets/icons/icon-meaningful-addition.svg?raw';
+import iconNoAdmin from '../assets/icons/icon-no-admin.svg?raw';
 
 const featureCards = [
   {
-    icon: '⚖',
+    icon: iconOpenLedger,
     title: 'Reduces disputes that land on your desk',
     body: "Family conflict over belongings is one of the most time-consuming parts of probate. Heirly's <a href=\"/how-it-works\" class=\"inline-link\">structured round system</a> resolves the majority of items automatically — and gives you a full audit trail if anything is later questioned.",
     htmlBody: true,
   },
   {
-    icon: '✦',
+    icon: iconMeaningfulAddition,
     title: 'A meaningful addition to your aftercare offering',
     body: "Introducing clients to Heirly at the right moment shows that your practice thinks beyond the paperwork. It's a simple, low-cost way to differentiate your service during a moment families remember.",
   },
   {
-    icon: '◎',
+    icon: iconNoAdmin,
     title: 'No admin burden on your team',
     body: 'You share a link or hand over a one-page card. We onboard the family, run the process, and produce the final report. You receive credit for the referral without adding to your workload.',
   },
@@ -288,7 +291,7 @@ const steps = [
       <div class="features-grid">
         {featureCards.map(card => (
           <div class="feature-card">
-            <span class="feature-icon" aria-hidden="true">{card.icon}</span>
+            <div class="feature-icon" aria-hidden="true" set:html={card.icon} />
             <h3 class="feature-title">{card.title}</h3>
             {card.htmlBody
               ? <p class="feature-body" set:html={card.body} />
@@ -632,10 +635,14 @@ const steps = [
   }
 
   .feature-icon {
-    font-size: 1.5rem;
     display: block;
-    margin-bottom: 1rem;
-    color: var(--color-sage);
+    margin-bottom: 18px;
+  }
+
+  .feature-icon svg {
+    width: 40px;
+    height: 40px;
+    display: block;
   }
 
   .feature-title {
