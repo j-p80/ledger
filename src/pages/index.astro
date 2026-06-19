@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import StepCard from '../components/StepCard.astro';
 import ValuePropCard from '../components/ValuePropCard.astro';
 import PricingCard from '../components/PricingCard.astro';
+import iconAutoResolve from '../assets/icons/icon-auto-resolve.svg?raw';
+import iconTwoLedgers from '../assets/icons/icon-two-ledgers.svg?raw';
+import iconOpenLedger from '../assets/icons/icon-open-ledger.svg?raw';
+import iconExecutorControl from '../assets/icons/icon-executor-control.svg?raw';
+import iconReferralLink from '../assets/icons/icon-referral-link.svg?raw';
+import iconClientMaterials from '../assets/icons/icon-client-materials.svg?raw';
+import iconNoAdmin from '../assets/icons/icon-no-admin.svg?raw';
 
 const steps = [
   {
@@ -27,25 +34,25 @@ const steps = [
 
 const valueProps = [
   {
-    icon: '✦',
+    icon: iconAutoResolve,
     title: 'Most items resolve automatically',
     description:
       "When only one person wants something, it's theirs — no discussion needed. Heirly only surfaces the items that genuinely need a conversation.",
   },
   {
-    icon: '⚖',
+    icon: iconTwoLedgers,
     title: 'Sentimental and financial fairness are separate',
     description:
       'A photograph of a parent has no market value but infinite personal meaning. Heirly handles sentimental and financial items through different processes.',
   },
   {
-    icon: '◎',
+    icon: iconOpenLedger,
     title: 'Full transparency',
     description:
       'Every allocation is visible to every family member. No backroom decisions. No one wonders whether they were treated fairly.',
   },
   {
-    icon: '❖',
+    icon: iconExecutorControl,
     title: 'Executor in control',
     description:
       'The executor sets the pace, opens and closes rounds, and has the final say. Heirly gives them the tools to run the process calmly.',
@@ -359,21 +366,21 @@ const paidPlanFeatures = [
         <!-- Right: benefit chips -->
         <div class="pros-right">
           <div class="benefit-chip">
-            <span class="chip-icon" aria-hidden="true">🔗</span>
+            <div class="chip-icon" aria-hidden="true" set:html={iconReferralLink} />
             <div class="chip-content">
               <strong class="chip-title">Dedicated referral link</strong>
               <p class="chip-desc">Your own link to share with clients. Tracks referrals back to your practice.</p>
             </div>
           </div>
           <div class="benefit-chip">
-            <span class="chip-icon" aria-hidden="true">📄</span>
+            <div class="chip-icon" aria-hidden="true" set:html={iconClientMaterials} />
             <div class="chip-content">
               <strong class="chip-title">Client-ready materials</strong>
               <p class="chip-desc">We provide a one-page explainer you can include in client packs or leave in your waiting room.</p>
             </div>
           </div>
           <div class="benefit-chip">
-            <span class="chip-icon" aria-hidden="true">💬</span>
+            <div class="chip-icon" aria-hidden="true" set:html={iconNoAdmin} />
             <div class="chip-content">
               <strong class="chip-title">No ongoing admin</strong>
               <p class="chip-desc">You make the introduction. We handle everything else.</p>
@@ -929,9 +936,15 @@ const paidPlanFeatures = [
   }
 
   .chip-icon {
-    font-size: 1.25rem;
     flex-shrink: 0;
-    margin-top: 1px;
+    display: flex;
+    align-items: center;
+  }
+
+  .chip-icon svg {
+    width: 40px;
+    height: 40px;
+    display: block;
   }
 
   .chip-title {

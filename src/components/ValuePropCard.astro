@@ -9,7 +9,7 @@ const { title, description, icon } = Astro.props;
 ---
 
 <div class="vp-card">
-  {icon && <span class="vp-icon" aria-hidden="true">{icon}</span>}
+  {icon && <div class="vp-icon" aria-hidden="true" set:html={icon} />}
   <h3 class="vp-title">{title}</h3>
   <p class="vp-description">{description}</p>
 </div>
@@ -28,10 +28,14 @@ const { title, description, icon } = Astro.props;
   }
 
   .vp-icon {
-    font-size: 1.5rem;
     display: block;
-    margin-bottom: 1rem;
-    color: var(--color-sage);
+    margin-bottom: 18px;
+  }
+
+  .vp-icon svg {
+    width: 40px;
+    height: 40px;
+    display: block;
   }
 
   .vp-title {
