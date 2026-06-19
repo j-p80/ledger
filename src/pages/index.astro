@@ -59,6 +59,25 @@ const valueProps = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "I was dreading having to manage my mother's estate with my siblings. Heirly made it feel manageable — everyone could see exactly how decisions were made.",
+    name: 'Sarah T.',
+    role: 'Executor',
+    location: 'London',
+    estate: 'Henderson Estate',
+    year: '2026',
+  },
+  {
+    quote: "We've always struggled to talk about this stuff as a family. Having a neutral system meant we focused on what mattered — not on arguing.",
+    name: 'Mark R.',
+    role: 'Beneficiary',
+    location: 'Sydney',
+    estate: 'Pemberton Estate',
+    year: '2026',
+  },
+];
+
 const freePlanFeatures = [
   'Up to 10 items',
   'Sentimental allocation rounds',
@@ -253,31 +272,44 @@ const paidPlanFeatures = [
   </section>
 
   <!-- ——— Testimonials ——— -->
-  <!-- PLACEHOLDER: replace with verified testimonials when available -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2 class="testimonials-heading">What families say</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "I was dreading having to manage my mother's estate with my siblings. Heirly made
-            it feel manageable — everyone could see exactly how decisions were made."
-          </p>
-          <div class="testimonial-attr">
-            <span class="testimonial-name">Sarah T., Executor · London</span>
-            <span class="testimonial-estate">Henderson Estate, 2026</span>
-          </div>
+  <section class="tq-section">
+    <div class="tq-wrap">
+      <p class="tq-label">What families say</p>
+
+      <div class="tq-quotemark" aria-hidden="true">&ldquo;</div>
+
+      <div class="tq-content" id="tq-content">
+        <blockquote class="tq-quote" id="tq-quote">{testimonials[0].quote}</blockquote>
+        <p
+          class="tq-meta"
+          id="tq-meta"
+          set:html={`<strong>${testimonials[0].name}</strong>, ${testimonials[0].role} &middot; ${testimonials[0].location} &middot; ${testimonials[0].estate}, ${testimonials[0].year}`}
+        />
+      </div>
+
+      <div class="tq-nav" aria-label="Testimonial navigation">
+        <button class="tq-arrow" id="tq-prev" aria-label="Previous testimonial">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="tq-dots" role="list">
+          {testimonials.map((_, i) => (
+            <button
+              class={`tq-dot${i === 0 ? ' tq-dot--active' : ''}`}
+              aria-label={`Testimonial ${i + 1} of ${testimonials.length}`}
+              data-index={String(i)}
+              role="listitem"
+            />
+          ))}
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">
-            "We've always struggled to talk about this stuff as a family. Having a neutral
-            system meant we focused on what mattered — not on arguing."
-          </p>
-          <div class="testimonial-attr">
-            <span class="testimonial-name">Mark R., Beneficiary · Sydney</span>
-            <span class="testimonial-estate">Pemberton Estate, 2026</span>
-          </div>
-        </div>
+
+        <button class="tq-arrow" id="tq-next" aria-label="Next testimonial">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -775,61 +807,119 @@ const paidPlanFeatures = [
   }
 
   /* ——— Testimonials ——— */
-  .testimonials-section {
+  /* ——— Testimonial rotator ——— */
+  .tq-section {
     background-color: var(--color-cream);
-    padding: 5.5rem 0;
+    padding: 90px 1.5rem 80px;
   }
 
-  .testimonials-heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--color-slate);
-    text-align: center;
-    margin: 0 0 3rem;
-  }
-
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    max-width: 960px;
+  .tq-wrap {
+    max-width: 760px;
     margin: 0 auto;
-  }
-
-  .testimonial-card {
-    background-color: var(--color-cream);
-    border: 1px solid #E0D8CC;
-    border-radius: 12px;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
   }
 
-  .testimonial-quote {
-    font-size: 1.0625rem;
-    line-height: 1.78;
-    color: var(--color-slate);
-    margin: 0;
-    font-style: italic;
-  }
-
-  .testimonial-attr {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .testimonial-name {
-    font-size: 0.9rem;
+  .tq-label {
+    font-family: var(--font-body);
+    font-size: 11px;
     font-weight: 600;
-    color: var(--color-forest);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #4A7C6A;
+    margin: 0 0 2rem;
   }
 
-  .testimonial-estate {
-    font-size: 0.8125rem;
+  .tq-quotemark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    color: #D4AF37;
+    opacity: 0.55;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    user-select: none;
+  }
+
+  .tq-content {
+    transition: opacity 0.2s ease;
+    width: 100%;
+  }
+
+  .tq-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.75rem;
+    line-height: 1.45;
+    color: #2D4A3E;
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+    border: none;
+  }
+
+  .tq-meta {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #6B7280;
+    margin: 0;
+  }
+
+  .tq-meta strong {
     color: var(--color-slate);
-    opacity: 0.5;
+    font-weight: 600;
+  }
+
+  .tq-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .tq-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(45, 74, 62, 0.28);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-forest);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .tq-arrow:hover {
+    border-color: var(--color-forest);
+    background-color: rgba(45, 74, 62, 0.06);
+  }
+
+  .tq-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tq-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(74, 124, 106, 0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+  }
+
+  .tq-dot--active {
+    width: 9px;
+    height: 9px;
+    background: #4A7C6A;
   }
 
   /* ——— Who it's for ——— */
@@ -989,11 +1079,9 @@ const paidPlanFeatures = [
 
     .steps-row::after { display: none; }
 
-    .testimonials-section { padding: 4rem 0; }
+    .tq-section { padding: 4rem 1.5rem; }
 
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
+    .tq-quote { font-size: 1.375rem; }
 
     .who-grid {
       grid-template-columns: 1fr;
@@ -1028,3 +1116,57 @@ const paidPlanFeatures = [
     opacity: 0.8;
   }
 </style>
+
+<script>
+  const testimonials = [
+    {
+      quote: "I was dreading having to manage my mother's estate with my siblings. Heirly made it feel manageable — everyone could see exactly how decisions were made.",
+      name: 'Sarah T.',
+      role: 'Executor',
+      location: 'London',
+      estate: 'Henderson Estate',
+      year: '2026',
+    },
+    {
+      quote: "We've always struggled to talk about this stuff as a family. Having a neutral system meant we focused on what mattered — not on arguing.",
+      name: 'Mark R.',
+      role: 'Beneficiary',
+      location: 'Sydney',
+      estate: 'Pemberton Estate',
+      year: '2026',
+    },
+  ];
+
+  let current = 0;
+  const total = testimonials.length;
+
+  const content  = document.getElementById('tq-content');
+  const quoteEl  = document.getElementById('tq-quote');
+  const metaEl   = document.getElementById('tq-meta');
+  const dots     = document.querySelectorAll<HTMLButtonElement>('.tq-dot');
+
+  function metaHtml(t: typeof testimonials[0]) {
+    return `<strong>${t.name}</strong>, ${t.role} &middot; ${t.location} &middot; ${t.estate}, ${t.year}`;
+  }
+
+  function goTo(index: number) {
+    const next = ((index % total) + total) % total;
+    if (next === current) return;
+
+    content!.style.opacity = '0';
+
+    setTimeout(() => {
+      current = next;
+      quoteEl!.textContent = testimonials[current].quote;
+      metaEl!.innerHTML = metaHtml(testimonials[current]);
+      dots.forEach((d, i) => {
+        d.classList.toggle('tq-dot--active', i === current);
+      });
+      content!.style.opacity = '1';
+    }, 200);
+  }
+
+  document.getElementById('tq-prev')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('tq-next')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+</script>
