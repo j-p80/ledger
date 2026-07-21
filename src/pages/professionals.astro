@@ -423,7 +423,21 @@ const steps = [
       </div>
 
       <div class="form-card">
-        <form action="/api/submit-enquiry" method="POST" class="enquiry-form" id="enquiry-form" novalidate>
+        <!-- Success panel — shown in place of the form after a successful submit -->
+        <div id="success-panel" class="success-panel" hidden tabindex="-1" role="status" aria-live="polite" aria-atomic="true">
+          <div class="success-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13l7 7L22 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="success-heading">Thanks - we'll be in touch</h3>
+          <p class="success-body">
+            We've received your enquiry and will reply within one business day. If you'd like
+            to reach us sooner, email <a href="mailto:hello@heirly.app" class="inline-link">hello@heirly.app</a>.
+          </p>
+        </div>
+
+        <form class="enquiry-form" id="enquiry-form" novalidate>
 
           <div class="field-row field-row--2col">
             <div class="field">
@@ -514,7 +528,7 @@ const steps = [
             ></textarea>
           </div>
 
-          <div id="form-status" role="alert" aria-live="polite" class="form-status" hidden></div>
+          <div id="form-status" role="alert" class="form-status" hidden></div>
 
           <button type="submit" class="submit-btn">Send enquiry</button>
 
@@ -1021,24 +1035,55 @@ const steps = [
     line-height: 1.6;
   }
 
+  /* Error status — inline, near submit button */
   .form-status {
-    padding: 0.875rem 1.125rem;
+    padding: 0.8125rem 1.125rem;
     border-radius: 7px;
     font-size: 0.9375rem;
     font-weight: 500;
     text-align: center;
+    background-color: rgba(192, 57, 43, 0.07);
+    color: #c0392b;
+    border: 1px solid rgba(192, 57, 43, 0.22);
   }
 
-  .form-status[data-state="success"] {
-    background-color: #d4edda;
-    color: #1d6330;
-    border: 1px solid #b1dfbb;
+  /* Success panel — replaces the form after a confirmed submission */
+  .success-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    outline: none;
   }
 
-  .form-status[data-state="error"] {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+  .success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    background-color: var(--color-gold);
+    color: var(--color-forest);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .success-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+    color: var(--color-forest);
+    margin: 0 0 0.875rem;
+  }
+
+  .success-body {
+    font-size: 1.0625rem;
+    color: var(--color-slate);
+    line-height: 1.72;
+    margin: 0;
+    max-width: 420px;
+    opacity: 0.82;
   }
 
   /* ——— Responsive ——— */
@@ -1094,27 +1139,37 @@ const steps = [
 </style>
 
 <script>
-  const form = document.getElementById('enquiry-form');
-  const statusEl = document.getElementById('form-status');
-  const btn = form?.querySelector('button[type="submit"]');
+  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  const statusEl = document.getElementById('form-status') as HTMLElement | null;
+  const successPanel = document.getElementById('success-panel') as HTMLElement | null;
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  // Guard: only one in-flight request at a time
+  let submitting = false;
 
   form?.addEventListener('submit', async (e) => {
+    // Prevent native form action unconditionally — must be first
     e.preventDefault();
+    if (submitting) return;
 
+    // Client-side required-field check
     const data = new FormData(form);
     for (const field of ['full_name', 'email', 'practice_name', 'country', 'role']) {
       if (!data.get(field)?.toString().trim()) {
-        show('error', 'Please fill in all required fields.');
-        form.querySelector(`[name="${field}"]`)?.focus();
+        showError('Please fill in all required fields.');
+        (form.querySelector(`[name="${field}"]`) as HTMLElement)?.focus();
         return;
       }
     }
 
-    btn.disabled = true;
-    const originalLabel = btn.textContent;
-    btn.textContent = 'Sending…';
-    hide();
+    // Lock against re-entry and update button state
+    submitting = true;
+    btn!.disabled = true;
+    const originalLabel = btn!.textContent ?? 'Send enquiry';
+    btn!.textContent = 'Sending…';
+    clearError();
 
+    let succeeded = false;
     try {
       const res = await fetch('/api/submit-enquiry', {
         method: 'POST',
@@ -1124,29 +1179,41 @@ const steps = [
       const json = await res.json().catch(() => ({}));
 
       if (res.ok && json.ok) {
-        show('success', "Thank you — we'll be in touch within one business day.");
-        form.reset();
+        succeeded = true;
+        // Replace form with branded confirmation panel
+        form.setAttribute('hidden', '');
+        successPanel!.removeAttribute('hidden');
+        successPanel!.focus();
       } else {
-        show('error', json.error ?? 'Something went wrong. Please try again.');
+        showError(
+          json.error ??
+            'Something went wrong — please try again or email hello@heirly.app.',
+        );
       }
     } catch {
-      show('error', 'Could not send your enquiry. Please check your connection and try again.');
+      showError(
+        'Could not send your enquiry. Please check your connection and try again.',
+      );
     } finally {
-      btn.disabled = false;
-      btn.textContent = originalLabel;
+      if (!succeeded) {
+        // Re-enable on error so user can correct and resubmit
+        submitting = false;
+        btn!.disabled = false;
+        btn!.textContent = originalLabel;
+      }
     }
   });
 
-  function show(state, message) {
-    statusEl.removeAttribute('hidden');
-    statusEl.dataset.state = state;
+  function showError(message: string): void {
+    if (!statusEl) return;
     statusEl.textContent = message;
+    statusEl.removeAttribute('hidden');
     statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  function hide() {
+  function clearError(): void {
+    if (!statusEl) return;
     statusEl.setAttribute('hidden', '');
-    delete statusEl.dataset.state;
     statusEl.textContent = '';
   }
 </script>
