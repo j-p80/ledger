@@ -402,6 +402,7 @@
 
     acceptBtn.addEventListener('click', () => {
       saveConsent(true, true);
+      window.heirlyAttribution && window.heirlyAttribution.capture();
       hideBanner();
     });
 
@@ -418,6 +419,7 @@
       const analytics = analyticsToggle!.getAttribute('aria-pressed') === 'true';
       const marketing = marketingToggle!.getAttribute('aria-pressed') === 'true';
       saveConsent(analytics, marketing);
+      if (analytics) window.heirlyAttribution && window.heirlyAttribution.capture();
       hideBanner();
     });
 
