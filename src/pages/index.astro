@@ -4,7 +4,6 @@ import StepCard from '../components/StepCard.astro';
 import ValuePropCard from '../components/ValuePropCard.astro';
 import PricingCard from '../components/PricingCard.astro';
 import iconAutoResolve from '../assets/icons/icon-auto-resolve.svg?raw';
-import iconTwoLedgers from '../assets/icons/icon-two-ledgers.svg?raw';
 import iconOpenLedger from '../assets/icons/icon-open-ledger.svg?raw';
 import iconExecutorControl from '../assets/icons/icon-executor-control.svg?raw';
 import iconReferralLink from '../assets/icons/icon-referral-link.svg?raw';
@@ -40,12 +39,6 @@ const valueProps = [
       "When only one person wants something, it's theirs - no discussion needed. Heirly only surfaces the items that genuinely need a conversation.",
   },
   {
-    icon: iconTwoLedgers,
-    title: 'Sentimental and financial fairness are separate',
-    description:
-      'A photograph of a parent has no market value but infinite personal meaning. Heirly handles sentimental and financial items through different processes.',
-  },
-  {
     icon: iconOpenLedger,
     title: 'Full transparency',
     description:
@@ -59,22 +52,18 @@ const valueProps = [
   },
 ];
 
-const testimonials = [
+const painPoints = [
   {
-    quote: "I was dreading having to manage my mother's estate with my siblings. Heirly made it feel manageable - everyone could see exactly how decisions were made.",
-    name: 'Sarah T.',
-    role: 'Executor',
-    location: 'London',
-    estate: 'Henderson Estate',
-    year: '2026',
+    title: "You've never done this before.",
+    description: "And nobody tells you what's normal.",
   },
   {
-    quote: "We've always struggled to talk about this stuff as a family. Having a neutral system meant we focused on what mattered - not on arguing.",
-    name: 'Mark R.',
-    role: 'Beneficiary',
-    location: 'Sydney',
-    estate: 'Pemberton Estate',
-    year: '2026',
+    title: "Everyone keeps asking what's happening.",
+    description: "And you're the one who has to answer.",
+  },
+  {
+    title: "Family doesn't always agree.",
+    description: 'And the executor ends up in the middle.',
   },
 ];
 
@@ -217,24 +206,25 @@ const paidPlanFeatures = [
     </div>
   </section>
 
-  <!-- ——— Stats bar ——— -->
-  <!-- PLACEHOLDER: update stats when real data is available -->
-  <section class="stats-band">
+  <!-- ——— Founding line ——— -->
+  <section class="founding-band">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number">500+</span>
-          <span class="stat-label">families guided</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">92%</span>
-          <span class="stat-label">of items allocated without dispute</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">UK, AU &amp; NZ</span>
-          <span class="stat-label">Used by probate professionals</span>
-        </div>
+      <p class="founding-line">Now welcoming our founding estates in New Zealand, Australia and the UK.</p>
+    </div>
+  </section>
+
+  <!-- ——— Sound familiar? ——— -->
+  <section class="section-pad bg-tint">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Sound familiar?</h2>
       </div>
+      <div class="vp-grid">
+        {painPoints.map(p => (
+          <ValuePropCard title={p.title} description={p.description} />
+        ))}
+      </div>
+      <p class="sf-closing">Heirly can't make grief easier. It can make dividing belongings calm, fair and visible to everyone.</p>
     </div>
   </section>
 
@@ -267,78 +257,6 @@ const paidPlanFeatures = [
         {valueProps.map(vp => (
           <ValuePropCard title={vp.title} description={vp.description} icon={vp.icon} />
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Testimonials ——— -->
-  <section class="tq-section">
-    <div class="tq-wrap">
-      <p class="tq-label">What families say</p>
-
-      <div class="tq-quotemark" aria-hidden="true">&ldquo;</div>
-
-      <div class="tq-content" id="tq-content">
-        <blockquote class="tq-quote" id="tq-quote">{testimonials[0].quote}</blockquote>
-        <p
-          class="tq-meta"
-          id="tq-meta"
-          set:html={`<strong>${testimonials[0].name}</strong>, ${testimonials[0].role} &middot; ${testimonials[0].location} &middot; ${testimonials[0].estate}, ${testimonials[0].year}`}
-        />
-      </div>
-
-      <div class="tq-nav" aria-label="Testimonial navigation">
-        <button class="tq-arrow" id="tq-prev" aria-label="Previous testimonial">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <div class="tq-dots" role="list">
-          {testimonials.map((_, i) => (
-            <button
-              class={`tq-dot${i === 0 ? ' tq-dot--active' : ''}`}
-              aria-label={`Testimonial ${i + 1} of ${testimonials.length}`}
-              data-index={String(i)}
-              role="listitem"
-            />
-          ))}
-        </div>
-
-        <button class="tq-arrow" id="tq-next" aria-label="Next testimonial">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— Who it's for ——— -->
-  <section class="section-pad bg-forest">
-    <div class="container">
-      <div class="section-header-light">
-        <h2 class="section-title-light">Who Heirly is for</h2>
-      </div>
-      <div class="who-grid">
-        <div class="who-card">
-          <h3 class="who-title">Executors</h3>
-          <p class="who-desc">
-            You have enough on your plate. Heirly gives you a structured, respectful way to manage
-            the <a href="/how-it-works" class="inline-link-cream">distribution of belongings</a> - without chasing people, managing spreadsheets, or
-            mediating arguments. Invite the family, open a round when you're ready, and let the
-            process do the heavy lifting.
-          </p>
-        </div>
-        <div class="who-divider" aria-hidden="true"></div>
-        <div class="who-card">
-          <h3 class="who-title">Family members</h3>
-          <p class="who-desc">
-            You receive a simple email invitation - no account to create, no password to remember.
-            See what's in the estate, share your preferences at your own pace, and always know how
-            items were allocated and why. Nothing happens without your knowledge.
-          </p>
-        </div>
       </div>
     </div>
   </section>
@@ -385,9 +303,9 @@ const paidPlanFeatures = [
           <p class="eyebrow eyebrow--sage">For professionals</p>
           <h2 class="pros-h2">A tool your clients will thank you for recommending</h2>
           <p class="pros-body">
-            Probate solicitors, funeral directors, and estate agents use Heirly to offer
-            families a structured, dignified process at the hardest moment. It reduces the
-            family disputes that land back on your desk - and shows you care about what
+            Probate solicitors, trustee companies and funeral directors partner with Heirly to
+            offer families a structured, dignified process at the hardest moment. It reduces
+            the family disputes that land back on your desk — and shows you care about what
             comes after the paperwork.
           </p>
           <a href="/professionals" class="btn-outlined">
@@ -742,38 +660,30 @@ const paidPlanFeatures = [
     font-style: italic;
   }
 
-  /* ——— Stats band ——— */
-  .stats-band {
+  /* ——— Founding band ——— */
+  .founding-band {
     background-color: var(--color-forest);
-    padding: 3.5rem 0;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    padding: 1.25rem 0;
     text-align: center;
   }
 
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
+  .founding-line {
+    font-size: 0.9375rem;
+    color: rgba(245, 240, 232, 0.78);
+    margin: 0;
+    font-style: italic;
   }
 
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 700;
-    color: var(--color-cream);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: rgba(245, 240, 232, 0.65);
-    line-height: 1.4;
+  /* ——— Sound familiar? ——— */
+  .sf-closing {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.72;
+    color: var(--color-slate);
+    opacity: 0.72;
+    margin: 2.5rem auto 0;
+    max-width: 52ch;
+    font-style: italic;
   }
 
   /* ——— Steps ——— */
@@ -804,152 +714,6 @@ const paidPlanFeatures = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
-  }
-
-  /* ——— Testimonials ——— */
-  /* ——— Testimonial rotator ——— */
-  .tq-section {
-    background-color: var(--color-cream);
-    padding: 90px 1.5rem 80px;
-  }
-
-  .tq-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .tq-label {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #4A7C6A;
-    margin: 0 0 2rem;
-  }
-
-  .tq-quotemark {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 64px;
-    color: #D4AF37;
-    opacity: 0.55;
-    line-height: 1;
-    margin-bottom: 0.25rem;
-    user-select: none;
-  }
-
-  .tq-content {
-    transition: opacity 0.2s ease;
-    width: 100%;
-  }
-
-  .tq-quote {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.75rem;
-    line-height: 1.45;
-    color: #2D4A3E;
-    max-width: 640px;
-    margin: 0 auto 1.5rem;
-    padding: 0;
-    border: none;
-  }
-
-  .tq-meta {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: #6B7280;
-    margin: 0;
-  }
-
-  .tq-meta strong {
-    color: var(--color-slate);
-    font-weight: 600;
-  }
-
-  .tq-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-  }
-
-  .tq-arrow {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(45, 74, 62, 0.28);
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-forest);
-    transition: border-color 0.15s ease, background-color 0.15s ease;
-    flex-shrink: 0;
-  }
-
-  .tq-arrow:hover {
-    border-color: var(--color-forest);
-    background-color: rgba(45, 74, 62, 0.06);
-  }
-
-  .tq-dots {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .tq-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(74, 124, 106, 0.3);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
-  }
-
-  .tq-dot--active {
-    width: 9px;
-    height: 9px;
-    background: #4A7C6A;
-  }
-
-  /* ——— Who it's for ——— */
-  .who-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 3rem;
-    align-items: start;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .who-divider {
-    width: 1px;
-    min-height: 180px;
-    background-color: rgba(245, 240, 232, 0.18);
-  }
-
-  .who-title {
-    font-family: var(--font-display);
-    font-size: 1.375rem;
-    color: var(--color-cream);
-    margin: 0 0 1rem;
-  }
-
-  .who-desc {
-    font-size: 1rem;
-    line-height: 1.78;
-    color: rgba(245, 240, 232, 0.72);
-    margin: 0;
   }
 
   /* ——— Pricing ——— */
@@ -1068,27 +832,11 @@ const paidPlanFeatures = [
 
     .mockup-card { transform: rotate(1deg); }
 
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
     .steps-row {
       flex-direction: column;
     }
 
     .steps-row::after { display: none; }
-
-    .tq-section { padding: 4rem 1.5rem; }
-
-    .tq-quote { font-size: 1.375rem; }
-
-    .who-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .who-divider { display: none; }
 
     .pricing-row {
       flex-direction: column;
@@ -1107,66 +855,4 @@ const paidPlanFeatures = [
     }
   }
 
-  .inline-link-cream {
-    color: var(--color-cream);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .inline-link-cream:hover {
-    opacity: 0.8;
-  }
 </style>
-
-<script>
-  const testimonials = [
-    {
-      quote: "I was dreading having to manage my mother's estate with my siblings. Heirly made it feel manageable - everyone could see exactly how decisions were made.",
-      name: 'Sarah T.',
-      role: 'Executor',
-      location: 'London',
-      estate: 'Henderson Estate',
-      year: '2026',
-    },
-    {
-      quote: "We've always struggled to talk about this stuff as a family. Having a neutral system meant we focused on what mattered - not on arguing.",
-      name: 'Mark R.',
-      role: 'Beneficiary',
-      location: 'Sydney',
-      estate: 'Pemberton Estate',
-      year: '2026',
-    },
-  ];
-
-  let current = 0;
-  const total = testimonials.length;
-
-  const content  = document.getElementById('tq-content');
-  const quoteEl  = document.getElementById('tq-quote');
-  const metaEl   = document.getElementById('tq-meta');
-  const dots     = document.querySelectorAll<HTMLButtonElement>('.tq-dot');
-
-  function metaHtml(t: typeof testimonials[0]) {
-    return `<strong>${t.name}</strong>, ${t.role} &middot; ${t.location} &middot; ${t.estate}, ${t.year}`;
-  }
-
-  function goTo(index: number) {
-    const next = ((index % total) + total) % total;
-    if (next === current) return;
-
-    content!.style.opacity = '0';
-
-    setTimeout(() => {
-      current = next;
-      quoteEl!.textContent = testimonials[current].quote;
-      metaEl!.innerHTML = metaHtml(testimonials[current]);
-      dots.forEach((d, i) => {
-        d.classList.toggle('tq-dot--active', i === current);
-      });
-      content!.style.opacity = '1';
-    }, 200);
-  }
-
-  document.getElementById('tq-prev')?.addEventListener('click', () => goTo(current - 1));
-  document.getElementById('tq-next')?.addEventListener('click', () => goTo(current + 1));
-  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-</script>

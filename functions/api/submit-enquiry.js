@@ -23,7 +23,7 @@ export async function onRequestPost({ request, env }) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return jsonError(422, 'Invalid email address');
   }
-  const validRoles = ['probate-solicitor', 'funeral-director', 'estate-agent', 'other'];
+  const validRoles = ['probate-solicitor', 'trustee-company', 'funeral-director', 'other'];
   if (!validRoles.includes(role)) {
     return jsonError(422, 'Invalid role value');
   }
