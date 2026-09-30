@@ -24,197 +24,12 @@ const featureCards = [
 ];
 
 const countries = [
-  { code: 'AF', name: 'Afghanistan' },
-  { code: 'AL', name: 'Albania' },
-  { code: 'DZ', name: 'Algeria' },
-  { code: 'AD', name: 'Andorra' },
-  { code: 'AO', name: 'Angola' },
-  { code: 'AG', name: 'Antigua and Barbuda' },
-  { code: 'AR', name: 'Argentina' },
-  { code: 'AM', name: 'Armenia' },
-  { code: 'AU', name: 'Australia' },
-  { code: 'AT', name: 'Austria' },
-  { code: 'AZ', name: 'Azerbaijan' },
-  { code: 'BS', name: 'Bahamas' },
-  { code: 'BH', name: 'Bahrain' },
-  { code: 'BD', name: 'Bangladesh' },
-  { code: 'BB', name: 'Barbados' },
-  { code: 'BY', name: 'Belarus' },
-  { code: 'BE', name: 'Belgium' },
-  { code: 'BZ', name: 'Belize' },
-  { code: 'BJ', name: 'Benin' },
-  { code: 'BT', name: 'Bhutan' },
-  { code: 'BO', name: 'Bolivia' },
-  { code: 'BA', name: 'Bosnia and Herzegovina' },
-  { code: 'BW', name: 'Botswana' },
-  { code: 'BR', name: 'Brazil' },
-  { code: 'BN', name: 'Brunei' },
-  { code: 'BG', name: 'Bulgaria' },
-  { code: 'BF', name: 'Burkina Faso' },
-  { code: 'BI', name: 'Burundi' },
-  { code: 'CV', name: 'Cabo Verde' },
-  { code: 'KH', name: 'Cambodia' },
-  { code: 'CM', name: 'Cameroon' },
-  { code: 'CA', name: 'Canada' },
-  { code: 'CF', name: 'Central African Republic' },
-  { code: 'TD', name: 'Chad' },
-  { code: 'CL', name: 'Chile' },
-  { code: 'CN', name: 'China' },
-  { code: 'CO', name: 'Colombia' },
-  { code: 'KM', name: 'Comoros' },
-  { code: 'CG', name: 'Congo' },
-  { code: 'CD', name: 'Congo, DR' },
-  { code: 'CR', name: 'Costa Rica' },
-  { code: 'CI', name: "Côte d'Ivoire" },
-  { code: 'HR', name: 'Croatia' },
-  { code: 'CU', name: 'Cuba' },
-  { code: 'CY', name: 'Cyprus' },
-  { code: 'CZ', name: 'Czech Republic' },
-  { code: 'DK', name: 'Denmark' },
-  { code: 'DJ', name: 'Djibouti' },
-  { code: 'DM', name: 'Dominica' },
-  { code: 'DO', name: 'Dominican Republic' },
-  { code: 'EC', name: 'Ecuador' },
-  { code: 'EG', name: 'Egypt' },
-  { code: 'SV', name: 'El Salvador' },
-  { code: 'GQ', name: 'Equatorial Guinea' },
-  { code: 'ER', name: 'Eritrea' },
-  { code: 'EE', name: 'Estonia' },
-  { code: 'SZ', name: 'Eswatini' },
-  { code: 'ET', name: 'Ethiopia' },
-  { code: 'FJ', name: 'Fiji' },
-  { code: 'FI', name: 'Finland' },
-  { code: 'FR', name: 'France' },
-  { code: 'GA', name: 'Gabon' },
-  { code: 'GM', name: 'Gambia' },
-  { code: 'GE', name: 'Georgia' },
-  { code: 'DE', name: 'Germany' },
-  { code: 'GH', name: 'Ghana' },
-  { code: 'GR', name: 'Greece' },
-  { code: 'GD', name: 'Grenada' },
-  { code: 'GT', name: 'Guatemala' },
-  { code: 'GN', name: 'Guinea' },
-  { code: 'GW', name: 'Guinea-Bissau' },
-  { code: 'GY', name: 'Guyana' },
-  { code: 'HT', name: 'Haiti' },
-  { code: 'HN', name: 'Honduras' },
-  { code: 'HU', name: 'Hungary' },
-  { code: 'IS', name: 'Iceland' },
-  { code: 'IN', name: 'India' },
-  { code: 'ID', name: 'Indonesia' },
-  { code: 'IR', name: 'Iran' },
-  { code: 'IQ', name: 'Iraq' },
-  { code: 'IE', name: 'Ireland' },
-  { code: 'IL', name: 'Israel' },
-  { code: 'IT', name: 'Italy' },
-  { code: 'JM', name: 'Jamaica' },
-  { code: 'JP', name: 'Japan' },
-  { code: 'JO', name: 'Jordan' },
-  { code: 'KZ', name: 'Kazakhstan' },
-  { code: 'KE', name: 'Kenya' },
-  { code: 'KI', name: 'Kiribati' },
-  { code: 'KW', name: 'Kuwait' },
-  { code: 'KG', name: 'Kyrgyzstan' },
-  { code: 'LA', name: 'Laos' },
-  { code: 'LV', name: 'Latvia' },
-  { code: 'LB', name: 'Lebanon' },
-  { code: 'LS', name: 'Lesotho' },
-  { code: 'LR', name: 'Liberia' },
-  { code: 'LY', name: 'Libya' },
-  { code: 'LI', name: 'Liechtenstein' },
-  { code: 'LT', name: 'Lithuania' },
-  { code: 'LU', name: 'Luxembourg' },
-  { code: 'MG', name: 'Madagascar' },
-  { code: 'MW', name: 'Malawi' },
-  { code: 'MY', name: 'Malaysia' },
-  { code: 'MV', name: 'Maldives' },
-  { code: 'ML', name: 'Mali' },
-  { code: 'MT', name: 'Malta' },
-  { code: 'MH', name: 'Marshall Islands' },
-  { code: 'MR', name: 'Mauritania' },
-  { code: 'MU', name: 'Mauritius' },
-  { code: 'MX', name: 'Mexico' },
-  { code: 'FM', name: 'Micronesia' },
-  { code: 'MD', name: 'Moldova' },
-  { code: 'MC', name: 'Monaco' },
-  { code: 'MN', name: 'Mongolia' },
-  { code: 'ME', name: 'Montenegro' },
-  { code: 'MA', name: 'Morocco' },
-  { code: 'MZ', name: 'Mozambique' },
-  { code: 'MM', name: 'Myanmar' },
-  { code: 'NA', name: 'Namibia' },
-  { code: 'NR', name: 'Nauru' },
-  { code: 'NP', name: 'Nepal' },
-  { code: 'NL', name: 'Netherlands' },
   { code: 'NZ', name: 'New Zealand' },
-  { code: 'NI', name: 'Nicaragua' },
-  { code: 'NE', name: 'Niger' },
-  { code: 'NG', name: 'Nigeria' },
-  { code: 'NO', name: 'Norway' },
-  { code: 'OM', name: 'Oman' },
-  { code: 'PK', name: 'Pakistan' },
-  { code: 'PW', name: 'Palau' },
-  { code: 'PA', name: 'Panama' },
-  { code: 'PG', name: 'Papua New Guinea' },
-  { code: 'PY', name: 'Paraguay' },
-  { code: 'PE', name: 'Peru' },
-  { code: 'PH', name: 'Philippines' },
-  { code: 'PL', name: 'Poland' },
-  { code: 'PT', name: 'Portugal' },
-  { code: 'QA', name: 'Qatar' },
-  { code: 'RO', name: 'Romania' },
-  { code: 'RU', name: 'Russia' },
-  { code: 'RW', name: 'Rwanda' },
-  { code: 'KN', name: 'Saint Kitts and Nevis' },
-  { code: 'LC', name: 'Saint Lucia' },
-  { code: 'VC', name: 'Saint Vincent and the Grenadines' },
-  { code: 'WS', name: 'Samoa' },
-  { code: 'SM', name: 'San Marino' },
-  { code: 'ST', name: 'São Tomé and Príncipe' },
-  { code: 'SA', name: 'Saudi Arabia' },
-  { code: 'SN', name: 'Senegal' },
-  { code: 'RS', name: 'Serbia' },
-  { code: 'SC', name: 'Seychelles' },
-  { code: 'SL', name: 'Sierra Leone' },
-  { code: 'SG', name: 'Singapore' },
-  { code: 'SK', name: 'Slovakia' },
-  { code: 'SI', name: 'Slovenia' },
-  { code: 'SB', name: 'Solomon Islands' },
-  { code: 'SO', name: 'Somalia' },
-  { code: 'ZA', name: 'South Africa' },
-  { code: 'SS', name: 'South Sudan' },
-  { code: 'ES', name: 'Spain' },
-  { code: 'LK', name: 'Sri Lanka' },
-  { code: 'SD', name: 'Sudan' },
-  { code: 'SR', name: 'Suriname' },
-  { code: 'SE', name: 'Sweden' },
-  { code: 'CH', name: 'Switzerland' },
-  { code: 'SY', name: 'Syria' },
-  { code: 'TW', name: 'Taiwan' },
-  { code: 'TJ', name: 'Tajikistan' },
-  { code: 'TZ', name: 'Tanzania' },
-  { code: 'TH', name: 'Thailand' },
-  { code: 'TL', name: 'Timor-Leste' },
-  { code: 'TG', name: 'Togo' },
-  { code: 'TO', name: 'Tonga' },
-  { code: 'TT', name: 'Trinidad and Tobago' },
-  { code: 'TN', name: 'Tunisia' },
-  { code: 'TR', name: 'Turkey' },
-  { code: 'TM', name: 'Turkmenistan' },
-  { code: 'TV', name: 'Tuvalu' },
-  { code: 'UG', name: 'Uganda' },
-  { code: 'UA', name: 'Ukraine' },
-  { code: 'AE', name: 'United Arab Emirates' },
+  { code: 'AU', name: 'Australia' },
   { code: 'GB', name: 'United Kingdom' },
+  { code: 'CA', name: 'Canada' },
   { code: 'US', name: 'United States' },
-  { code: 'UY', name: 'Uruguay' },
-  { code: 'UZ', name: 'Uzbekistan' },
-  { code: 'VU', name: 'Vanuatu' },
-  { code: 'VE', name: 'Venezuela' },
-  { code: 'VN', name: 'Vietnam' },
-  { code: 'YE', name: 'Yemen' },
-  { code: 'ZM', name: 'Zambia' },
-  { code: 'ZW', name: 'Zimbabwe' },
+  { code: 'OT', name: 'Other' },
 ];
 
 const steps = [
@@ -243,7 +58,7 @@ const steps = [
 
 <Layout
   title="Estate Tools for Probate Solicitors & Funeral Directors"
-  description="Probate solicitors, funeral directors, and estate agents partner with Heirly to give clients a structured, transparent process for dividing estate belongings. Serving the UK, Australia, and New Zealand."
+  description="Probate solicitors, trustee companies and funeral directors partner with Heirly to give families a structured, transparent way to divide belongings — reducing the disputes that find their way back to you. We work with partners across the UK, Australia and New Zealand."
   ogImage="/og/og-home.png"
 >
   <Fragment slot="head">
@@ -252,11 +67,11 @@ const steps = [
       "@type": "ProfessionalService",
       "name": "Heirly — Professional Partnerships",
       "url": "https://heirly.app/professionals",
-      "description": "Heirly partners with probate solicitors, funeral directors, and estate agents in the UK, Australia, and New Zealand to provide clients with structured, transparent estate settlement.",
+      "description": "Heirly partners with probate solicitors, trustee companies and funeral directors in the UK, Australia, and New Zealand to provide clients with structured, transparent estate settlement.",
       "areaServed": ["GB", "AU", "NZ"],
       "availableLanguage": "English",
       "email": "partners@heirly.app",
-      "audience": {"@type": "Audience", "audienceType": "Probate solicitors, funeral directors, estate agents"}
+      "audience": {"@type": "Audience", "audienceType": "Probate solicitors, funeral directors, trustee companies"}
     })} />
   </Fragment>
 
@@ -266,20 +81,12 @@ const steps = [
       <p class="eyebrow">Professional partnerships</p>
       <h1>Help your clients through<br />what comes next</h1>
       <p class="hero-sub">
-        Probate solicitors, funeral directors, and estate agents partner with Heirly to give
-        families a structured, transparent way to divide an estate — reducing the disputes
-        that find their way back to you. We work with professional partners across the UK, Australia, and New Zealand.
+        Probate solicitors, trustee companies and funeral directors partner with Heirly to give
+        families a structured, transparent way to divide belongings — reducing the disputes
+        that find their way back to you. We work with partners across the UK, Australia and New Zealand.
       </p>
       <div class="hero-actions">
         <a href="#partner-form" class="btn-gold">Enquire about partnering</a>
-        <a
-          href="#"
-          class="btn-ghost-cream"
-          aria-label="Download partner guide PDF"
-        >
-          <!-- PLACEHOLDER: link to partner PDF when created -->
-          Download our partner guide (PDF)
-        </a>
       </div>
     </div>
   </section>
@@ -330,13 +137,11 @@ const steps = [
         <!-- Radio inputs must come first for the ~ sibling combinator -->
         <input type="radio" name="prof-tab" id="pt-1" class="pt-radio" checked />
         <input type="radio" name="prof-tab" id="pt-2" class="pt-radio" />
-        <input type="radio" name="prof-tab" id="pt-3" class="pt-radio" />
 
         <!-- Tab nav -->
         <div class="pt-nav" role="tablist">
           <label for="pt-1" class="pt-label" role="tab">Probate Solicitors</label>
           <label for="pt-2" class="pt-label" role="tab">Funeral Directors</label>
-          <label for="pt-3" class="pt-label" role="tab">Estate Agents</label>
         </div>
 
         <!-- Tab panels -->
@@ -352,6 +157,7 @@ const steps = [
               through the process step by step, without requiring legal knowledge.
             </p>
             <ul class="tick-list">
+              <li>Fewer calls from family members asking how belongings are being divided</li>
               <li>Full audit log of every allocation decision</li>
               <li>PDF report suitable for legal record-keeping</li>
               <li>Executor-led, so no professional liability for the process itself</li>
@@ -373,40 +179,6 @@ const steps = [
             </ul>
           </div>
 
-          <div class="pt-panel pt-panel-3" role="tabpanel">
-            <h3 class="panel-heading">For estate agents</h3>
-            <p class="panel-body">
-              A property cannot be cleared or listed until belongings have been distributed.
-              Families that use Heirly reach agreement faster — which means the property
-              moves forward on your timeline, not theirs. Recommend Heirly early and you
-              remove one of the most common sources of delay.
-            </p>
-            <ul class="tick-list">
-              <li>Average estate settled in days, not weeks</li>
-              <li>Reduces calls to your team from frustrated families</li>
-              <li>Positions you as a full-service partner, not just a transaction</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— 2E: Testimonial ——— -->
-  <!-- PLACEHOLDER: replace with verified partner testimonial -->
-  <section class="partner-testimonial">
-    <div class="container">
-      <div class="testimonial-inner">
-        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-        <blockquote class="testimonial-quote">
-          We introduced Heirly to a client who was managing a complex estate with four adult
-          children. The process took two weeks instead of what could have been months of
-          disagreement. We'll be recommending it to every executor client going forward.
-        </blockquote>
-        <div class="testimonial-attr">
-          <span class="testimonial-name">Partner Solicitor · London firm</span>
-          <span class="testimonial-placeholder">Placeholder — verified testimonial coming soon</span>
         </div>
       </div>
     </div>
@@ -491,8 +263,8 @@ const steps = [
               <select id="role" name="role" required>
                 <option value="" disabled selected>Select your role</option>
                 <option value="probate-solicitor">Probate Solicitor</option>
+                <option value="trustee-company">Trustee Company</option>
                 <option value="funeral-director">Funeral Director</option>
-                <option value="estate-agent">Estate Agent</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -790,12 +562,10 @@ const steps = [
   /* Active panel — shown when its radio is checked */
   #pt-1:checked ~ .pt-body .pt-panel-1 { display: block; }
   #pt-2:checked ~ .pt-body .pt-panel-2 { display: block; }
-  #pt-3:checked ~ .pt-body .pt-panel-3 { display: block; }
 
   /* Active tab label */
   #pt-1:checked ~ .pt-nav label[for="pt-1"],
-  #pt-2:checked ~ .pt-nav label[for="pt-2"],
-  #pt-3:checked ~ .pt-nav label[for="pt-3"] {
+  #pt-2:checked ~ .pt-nav label[for="pt-2"] {
     color: var(--color-forest);
     opacity: 1;
     font-weight: 600;
@@ -842,60 +612,6 @@ const steps = [
     font-weight: 700;
     flex-shrink: 0;
     margin-top: 0.05em;
-  }
-
-  /* ——— 2E: Partner testimonial ——— */
-  .partner-testimonial {
-    background-color: var(--color-forest);
-    padding: 5.5rem 0;
-  }
-
-  .testimonial-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .quote-mark {
-    font-family: var(--font-display);
-    font-size: 6rem;
-    line-height: 0.7;
-    color: var(--color-gold);
-    display: block;
-    user-select: none;
-  }
-
-  .testimonial-quote {
-    font-family: var(--font-display);
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    line-height: 1.65;
-    color: var(--color-cream);
-    margin: 0;
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .testimonial-attr {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    align-items: center;
-  }
-
-  .testimonial-name {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: rgba(245, 240, 232, 0.85);
-  }
-
-  .testimonial-placeholder {
-    font-size: 0.75rem;
-    color: rgba(245, 240, 232, 0.35);
-    font-style: italic;
   }
 
   /* ——— 2F: Form ——— */
@@ -1093,7 +809,6 @@ const steps = [
     .features-section,
     .steps-section,
     .professions-section,
-    .partner-testimonial,
     .form-section { padding: 4rem 0; }
 
     .features-grid {
@@ -1119,8 +834,6 @@ const steps = [
       padding-top: 2.5rem;
       border-top: 1px solid rgba(45, 74, 62, 0.1);
     }
-
-    .quote-mark { font-size: 4rem; }
 
     .field-row--2col { grid-template-columns: 1fr; }
 
