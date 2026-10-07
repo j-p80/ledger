@@ -31,7 +31,7 @@ const navLinks = [
 
     <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link">{link.label}</a>
+        <a href={link.href} class="nav-link" data-astro-prefetch>{link.label}</a>
       ))}
       <a
         href="https://app.heirly.app"
