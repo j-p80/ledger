@@ -86,13 +86,13 @@ const speakableSchema = {
 </Layout>
 
 <style>
-  .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* Hero */
   .guide-hero {
     background: var(--color-forest);
     color: var(--color-cream);
-    padding: 5rem 1.5rem 4rem;
+    padding: 5rem 0 4rem;
     text-align: center;
   }
   .eyebrow {
@@ -114,8 +114,10 @@ const speakableSchema = {
   /* Body */
   .guide-body {
     background: var(--color-cream);
-    padding: 4rem 1.5rem 5rem;
+    padding: 4rem 0 5rem;
   }
+  .lead, .guide-body h2, .guide-body p,
+  .faq-list, .guide-cta-inline, .disclaimer { max-width: 720px; }
   .lead {
     font-size: 1.125rem;
     line-height: 1.8;
@@ -205,6 +207,6 @@ const speakableSchema = {
   }
 
   @media (max-width: 640px) {
-    .guide-body { padding: 3rem 1.5rem 4rem; }
+    .guide-body { padding: 3rem 0 4rem; }
   }
 </style>
