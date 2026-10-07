@@ -127,12 +127,12 @@ const orgSchema = {
 
 <style>
   .container {
-    max-width: 760px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
   .container-wide {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -141,7 +141,7 @@ const orgSchema = {
   .about-hero {
     background: var(--color-forest);
     color: var(--color-cream);
-    padding: 5rem 1.5rem 4rem;
+    padding: 5rem 0 4rem;
     text-align: center;
   }
   .about-hero h1 {
@@ -162,8 +162,11 @@ const orgSchema = {
 
   /* Sections */
   .about-section {
-    padding: 4.5rem 1.5rem;
+    padding: 4.5rem 0;
   }
+  .about-section p,
+  .about-section h2,
+  .about-section ul { max-width: 720px; }
   .bg-cream { background: var(--color-cream); }
   .bg-tint { background: var(--color-tint); }
 
