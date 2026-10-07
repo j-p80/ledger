@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://heirly.app',
   output: 'static',
+  prefetch: {
+    defaultStrategy: 'load',
+  },
   integrations: [
     tailwind(),
     sitemap(),
